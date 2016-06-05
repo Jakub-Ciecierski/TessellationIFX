@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CPP_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/buffers/vbo.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/buffers/ebo.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/buffers/vao.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/loaders/light_loader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/loaders/render_object_loader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/lighting/light_group.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/lighting/types/light_spotlight.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/lighting/types/light_directional.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/lighting/types/light_point.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/lighting/builders/dirlight_shader_builder.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/lighting/builders/pointlight_shader_builder.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/lighting/builders/spotlight_shader_builder.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/lighting/builders/light_shader_builder.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/lighting/builders/light_shader_common_data.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/lighting/light_source.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/window.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/rendering/render_object.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/object_id.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/shaders/shader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/shaders/tess_eval_shader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/shaders/loaders/program_loader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/shaders/loaders/shader_loader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/shaders/fragment_shader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/shaders/vertex_shader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/shaders/program.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/shaders/tess_control_shader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/scene/scene.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/controls/camera.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/controls/keys.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/controls/camera_controls.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/object.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/textures/texture_loader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/mesh/loaders/model_demo_loader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/mesh/loaders/mesh_loader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/mesh/loaders/model_loader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/mesh/mesh_data.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/mesh/patch/patch.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/mesh/model.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/mesh/mesh.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/cmake-modules/PrecompiledHeader.cmake" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/cmake-modules/cmake_uninstall.cmake.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/cmake-modules/FindPkgMacros.cmake" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/cmake-modules/FindZLIB.cmake" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/tools/assimp_cmd/Main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/tools/assimp_cmd/CompareDump.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/tools/assimp_cmd/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/tools/assimp_cmd/assimp_cmd.rc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/tools/assimp_cmd/WriteDumb.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/tools/assimp_cmd/Main.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/tools/assimp_cmd/resource.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/tools/assimp_cmd/ImageExtractor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/tools/assimp_cmd/Export.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/tools/assimp_cmd/Info.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/StandardShapes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/LimitBoneWeightsProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ScenePreprocessor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OptimizeMeshes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SplitByBoneCountProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Assimp.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/AssimpCExport.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OgreImporter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ACLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXConverter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/STEPFileReader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IFCMaterial.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/GenVertexNormalsProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MaterialSystem.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FindDegenerates.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/TinyFormatter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Q3BSPFileData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ObjFileParser.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IFCBoolean.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ConvertToLHProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/RemoveRedundantMaterials.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/PostStepRegistry.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/XFileHelper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderScene.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ASEParser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BaseProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/TerragenLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FileLogStream.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/StreamReader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/PlyLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ComputeUVMappingProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MaterialSystem.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/B3DImporter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FindInstancesProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/DefaultIOSystem.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FixNormalsStep.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MD2Loader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/COBScene.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Exporter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/UnrealLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Q3DLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MD2Loader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SplitLargeMeshes.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXParser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderDNA.inl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Importer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/STLLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXDeformer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/VertexTriangleAdjacency.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ObjFileImporter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MD3Loader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/HMPLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderModifier.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IFCOpenings.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/NDOLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ACLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Vertex.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/3DSHelper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SplitLargeMeshes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BVHLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/CSMLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ColladaLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/HalfLifeFileData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ObjFileMtlImporter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/irrXMLWrapper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/PlyLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/NFFLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/TerragenLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OFFLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ScenePreprocessor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MD2FileData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MD5Loader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MDLFileData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IFCReaderGen.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IFF.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/B3DImporter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/3DSLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ProcessHelper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXMeshGeometry.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OFFLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SceneCombiner.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ConvertToLHProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/TriangulateProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MDLMaterialLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/STEPFile.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OgreBinarySerializer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/PlyExporter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ObjTools.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/COBLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/AssimpPCH.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MDCLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ValidateDataStructure.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/LWOBLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IFCProfile.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BaseImporter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SceneCombiner.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXDocumentUtil.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/LineSplitter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ObjFileMtlImporter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MD2NormalTable.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IRRLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderBMesh.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ImproveCacheLocality.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Subdivision.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/PretransformVertices.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ColladaLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXModel.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ColladaExporter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ObjFileData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ColladaParser.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/HMPLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXDocument.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IFCUtil.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Profiler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderIntermediate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SkeletonMeshBuilder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MDLLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BVHLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Q3BSPFileImporter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/GenVertexNormalsProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MDCLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IFCLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IRRShared.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXDocumentUtil.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ProcessHelper.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXImporter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SplitByBoneCountProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OgreImporter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/STLExporter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Hash.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/XFileParser.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/LWOAnimation.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderTessellator.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IRRMeshLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Q3BSPFileParser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MakeVerboseFormat.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IRRShared.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/StdOStreamLogStream.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OptimizeGraph.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ObjFileImporter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Win32DebugLogStream.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/3DSLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ASELoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/TextureTransform.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/LWOAnimation.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Q3DLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/PretransformVertices.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Bitmap.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Q3BSPFileParser.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/CalcTangentsProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FindDegenerates.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Subdivision.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/StringComparison.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/RemoveRedundantMaterials.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/3DSConverter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ImproveCacheLocality.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/COBLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OgreStructs.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXParser.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MD5Parser.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/XFileImporter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IRRLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OgreStructs.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SmoothingGroups.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXUtil.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderScene.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SGSpatialSort.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/LogAux.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXBinaryTokenizer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/LWSLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/PolyTools.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/NFFLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/RemoveVCProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/TriangulateProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/LWOLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MD5Parser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/math/common_factor_rt.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/static_assert.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/make_shared.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/shared_ptr.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/shared_array.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/scoped_array.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/foreach.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/scoped_ptr.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/format.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/tuple/tuple.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXImporter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/DeboneProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderDNA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ImporterRegistry.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/VertexTriangleAdjacency.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Importer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IFCCurve.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/DXFHelper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/DefaultIOSystem.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/TargetAnimation.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ComputeUVMappingProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ByteSwap.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/PlyParser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/RawLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/PlyExporter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Q3BSPZipArchive.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FindInstancesProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ScenePrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXTokenizer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Q3BSPFileImporter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXCompileConfig.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OgreXmlSerializer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OptimizeMeshes.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Bitmap.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IFCReaderGen.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXProperties.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ValidateDataStructure.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SpatialSort.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/LWOFileData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXTokenizer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MD5Loader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/StandardShapes.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SMDLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SpatialSort.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderDNA.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FindInvalidDataProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IFCGeometry.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/DeboneProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ASELoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ColladaParser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXDocument.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXNodeAttribute.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ObjFileParser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/RemoveComments.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MD4FileData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MDLDefaultColorMap.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXProperties.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MS3DLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/NDOLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/CInterfaceIOWrapper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/HMPFileData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/TargetAnimation.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/STLLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SMDLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SortByPTypeProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MD3Loader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ParsingUtils.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/DefaultLogger.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/CalcTangentsProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/LWSLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IFCUtil.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/GenFaceNormalsProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ObjExporter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/GenFaceNormalsProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/LWOLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/GenericProperty.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/XGLLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderBMesh.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/DefaultIOStream.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/UnrealLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXUtil.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/PlyParser.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/DefaultProgressHandler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderTessellator.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/LWOMaterial.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXAnimation.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BaseProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/qnan.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderSceneGen.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXConverter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FindInvalidDataProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/STEPFileEncoding.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ColladaExporter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ASEParser.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/JoinVerticesProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/XFileParser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MemoryIOWrapper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/STEPFileEncoding.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SkeletonMeshBuilder.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MD3FileData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlobIOSystem.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/fast_atof.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXMaterial.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SGSpatialSort.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/RawLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OgreXmlSerializer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MDCFileData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/XFileImporter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FixNormalsStep.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/FBXImportSettings.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/JoinVerticesProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BaseImporter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OgreMaterial.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ColladaHelper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MS3DLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/DXFLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OgreParsingUtils.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/SortByPTypeProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/RemoveComments.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/ObjExporter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/XGLLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MDLLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BlenderModifier.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/DefaultIOStream.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/CSMLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MakeVerboseFormat.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/STLExporter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IFCLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/AssimpPCH.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OgreBinarySerializer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/DXFLoader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/LimitBoneWeightsProcess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/TextureTransform.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/IRRMeshLoader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/RemoveVCProcess.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/Q3BSPZipArchive.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/OptimizeGraph.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/STEPFileReader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/MDCNormalTable.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/assimp-config.cmake.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/config.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/cimport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/version.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/matrix3x3.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/IOStream.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/types.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/material.inl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/vector2.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/postprocess.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/material.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/vector3.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/Compiler/poppack1.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/Compiler/pushpack1.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/Compiler/pstdint.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/ProgressHandler.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/ai_assert.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/matrix4x4.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/anim.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/matrix4x4.inl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/IOSystem.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/DefaultLogger.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/quaternion.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/Importer.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/light.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/matrix3x3.inl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/Logger.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/importerdesc.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/quaternion.inl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/color4.inl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/mesh.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/vector2.inl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/LogStream.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/camera.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/vector3.inl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/cexport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/texture.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/color4.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/NullLogger.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/Exporter.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/cfileio.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/scene.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/metadata.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/defs.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/assimp-config-version.cmake.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/assimp.pc.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/clipper/clipper.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/clipper/clipper.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/ConvertUTF/ConvertUTF.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/ConvertUTF/ConvertUTF.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/poly2tri/poly2tri/sweep/sweep_context.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/poly2tri/poly2tri/sweep/sweep_context.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/poly2tri/poly2tri/sweep/advancing_front.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/poly2tri/poly2tri/sweep/cdt.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/poly2tri/poly2tri/sweep/sweep.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/poly2tri/poly2tri/sweep/cdt.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/poly2tri/poly2tri/sweep/sweep.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/poly2tri/poly2tri/sweep/advancing_front.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/poly2tri/poly2tri/common/utils.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/poly2tri/poly2tri/common/shapes.cc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/poly2tri/poly2tri/common/shapes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/irrXML/irrXML.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/irrXML/irrXML.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/irrXML/irrTypes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/irrXML/irrString.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/irrXML/heapsort.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/irrXML/CXMLReaderImpl.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/irrXML/irrArray.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/unzip/unzip.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/unzip/ioapi.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/unzip/unzip.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/unzip/crypt.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/unzip/ioapi.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps/glad/glad.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps/tinycthread.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps/getopt.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps/getopt.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps/glad.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps/tinycthread.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/init.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/linux_joystick.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/posix_tls.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/x11_monitor.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/linux_joystick.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/internal.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/x11_init.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/glfw3.pc.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/x11_window.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/x11_platform.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/glx_context.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/posix_time.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/xkb_unicode.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/posix_time.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/glx_context.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/context.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/window.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/monitor.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/glfw3Config.cmake.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/input.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/posix_tls.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/glfw_config.h.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/src/xkb_unicode.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/cursor.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/title.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/empty.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/tearing.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/reopen.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/monitors.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/clipboard.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/events.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/iconify.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/threads.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/windows.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/joysticks.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/msaa.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/gamma.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/sharing.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/tests/glfwinfo.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/include/GLFW/glfw3native.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/include/GLFW/glfw3.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/docs/Doxyfile.in" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/examples/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/examples/simple.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/examples/heightmap.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/examples/boing.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/examples/wave.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/examples/particles.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/examples/gears.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/examples/splitview.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/SOIL/src/stb_image_aug.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/SOIL/src/image_DXT.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/SOIL/src/SOIL.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/SOIL/src/stbi_DDS_aug.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/SOIL/src/image_DXT.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/SOIL/src/SOIL.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/SOIL/src/stb_image_aug.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/SOIL/src/image_helper.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/SOIL/src/stbi_DDS_aug_c.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/SOIL/src/image_helper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dependencies/SOIL/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/shaders/tess_control_shader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/shaders/tess_eval_shader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/mesh/patch/patch.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/res" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.9/include" />
+          <root url="file:///usr/include" />
+          <root url="file:///usr/local/include" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/unzip" />
+          <root url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps" />
+          <root url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/include" />
+          <root url="file://$MODULE_DIR$/dependencies/SOIL/src" />
+          <root url="file://$MODULE_DIR$/dependencies/glm/include" />
+          <root url="file://$MODULE_DIR$/include" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/c057d1c6/c057d1c6/Release" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/c057d1c6/c057d1c6/Debug" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/c057d1c6/c057d1c6/RelWithDebInfo" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/c057d1c6/c057d1c6/MinSizeRel" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.9/include" />
+          <root url="file:///usr/include" />
+          <root url="file:///usr/local/include" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/unzip" />
+          <root url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps" />
+          <root url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/include" />
+          <root url="file://$MODULE_DIR$/dependencies/SOIL/src" />
+          <root url="file://$MODULE_DIR$/dependencies/glm/include" />
+          <root url="file://$MODULE_DIR$/include" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/c057d1c6/c057d1c6/Release" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/c057d1c6/c057d1c6/Debug" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/c057d1c6/c057d1c6/RelWithDebInfo" />
+          <root url="file://$USER_HOME$/.CLion12/system/cmake/generated/c057d1c6/c057d1c6/MinSizeRel" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/math/common_factor_rt.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/static_assert.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/make_shared.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/shared_ptr.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/shared_array.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/scoped_array.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/foreach.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/scoped_ptr.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/format.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/code/BoostWorkaround/boost/tuple/tuple.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/config.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/cimport.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/version.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/matrix3x3.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/IOStream.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/types.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/material.inl" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/vector2.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/postprocess.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/material.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/vector3.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/Compiler/poppack1.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/Compiler/pushpack1.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/Compiler/pstdint.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/ProgressHandler.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/ai_assert.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/matrix4x4.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/anim.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/matrix4x4.inl" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/IOSystem.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/DefaultLogger.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/quaternion.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/Importer.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/light.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/matrix3x3.inl" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/Logger.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/importerdesc.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/quaternion.inl" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/color4.inl" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/mesh.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/vector2.inl" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/LogStream.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/camera.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/vector3.inl" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/cexport.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/texture.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/color4.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/NullLogger.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/Exporter.hpp" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/cfileio.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/scene.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/metadata.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/include/assimp/defs.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/unzip/unzip.c" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/unzip/ioapi.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/unzip/unzip.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/unzip/crypt.h" />
+          <root url="file://$MODULE_DIR$/dependencies/assimp-3.1.1/contrib/unzip/ioapi.c" />
+          <root url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps/glad/glad.h" />
+          <root url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps/tinycthread.c" />
+          <root url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps/getopt.h" />
+          <root url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps/getopt.c" />
+          <root url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps/glad.c" />
+          <root url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/deps/tinycthread.h" />
+          <root url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/include/GLFW/glfw3native.h" />
+          <root url="file://$MODULE_DIR$/dependencies/glfw-3.1.2/include/GLFW/glfw3.h" />
+          <root url="file://$MODULE_DIR$/dependencies/SOIL/src/stb_image_aug.c" />
+          <root url="file://$MODULE_DIR$/dependencies/SOIL/src/image_DXT.h" />
+          <root url="file://$MODULE_DIR$/dependencies/SOIL/src/SOIL.h" />
+          <root url="file://$MODULE_DIR$/dependencies/SOIL/src/stbi_DDS_aug.h" />
+          <root url="file://$MODULE_DIR$/dependencies/SOIL/src/image_DXT.c" />
+          <root url="file://$MODULE_DIR$/dependencies/SOIL/src/SOIL.c" />
+          <root url="file://$MODULE_DIR$/dependencies/SOIL/src/stb_image_aug.h" />
+          <root url="file://$MODULE_DIR$/dependencies/SOIL/src/image_helper.c" />
+          <root url="file://$MODULE_DIR$/dependencies/SOIL/src/stbi_DDS_aug_c.h" />
+          <root url="file://$MODULE_DIR$/dependencies/SOIL/src/image_helper.h" />
+          <root url="file://$MODULE_DIR$/include/shaders/tess_control_shader.h" />
+          <root url="file://$MODULE_DIR$/include/shaders/tess_eval_shader.h" />
+          <root url="file://$MODULE_DIR$/include/mesh/patch/patch.h" />
+        </excluded>
+      </library>
+    </orderEntry>
+  </component>
+</module>
