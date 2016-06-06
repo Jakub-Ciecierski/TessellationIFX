@@ -15,6 +15,7 @@ RenderObjectLoader::~RenderObjectLoader() {
     delete cubeMapModel;
     delete lampModel;
 
+    delete bicubicBezierSurfaceC0Model;
     delete bicubicBezierPatchModel;
     delete bicubicBezierBowlPatchModel;
     delete bicubicBezierAsymmetricPatchModel;
@@ -26,13 +27,28 @@ void RenderObjectLoader::initModels() {
     cubeMapModel = new Model(ModelDemoLoader::LoadCubemapModel());
     cubeModel = new Model(ModelDemoLoader::LoadCubeModel());
     lampModel = new Model(ModelDemoLoader::LoadLampModel());
+
+    bicubicBezierSurfaceC0Model =
+            new Model(ModelDemoLoader::LoadBicubicBezierSurfaceC0());
     bicubicBezierPatchModel
             = new Model(ModelDemoLoader::LoadBicubicBezierPatch());
-
     bicubicBezierBowlPatchModel
             = new Model(ModelDemoLoader::LoadBicubicBezierBowlPatch());
     bicubicBezierAsymmetricPatchModel
             = new Model(ModelDemoLoader::LoadBicubicBezierAsymmetricPatch());
+}
+
+RenderObject *RenderObjectLoader::loadBicubicBezierSurfaceC0Object() {
+    RenderObject* renderObject
+            = new RenderObject(ObjectID(0), "BezierPatch",
+                               bicubicBezierSurfaceC0Model);
+    float scaleFactor = 4.0f;
+
+    renderObject->moveTo(glm::vec3(10.0f, 0.0f, 30.0f));
+    renderObject->rotateTo(glm::vec3(-90.0f, 0.0f, 0.0f));
+    renderObject->scale(glm::vec3(scaleFactor, scaleFactor, scaleFactor));
+
+    return renderObject;
 }
 
 RenderObject *RenderObjectLoader::loadBicubicBezierPatchObject() {

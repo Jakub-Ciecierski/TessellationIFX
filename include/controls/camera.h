@@ -37,7 +37,7 @@ public:
 
     Camera(int* width, int* height,
            float FOV = 45.0f,
-           float near = 0.1f, float far = 100.0f);
+           float near = 0.01f, float far = 100.0f);
 
     ~Camera();
     void clampRotation();

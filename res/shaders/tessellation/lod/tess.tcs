@@ -1,0 +1,58 @@
+#version 400 core
+
+/*
+ * Tessellation Control Shader, second after Vertex Shader
+ */
+
+// Produces 3 vertices of output
+layout (vertices = 16) out;
+
+in vec3 vLocalPos[];
+
+out vec3 tcPosition[];
+
+uniform float TessLevelInner;
+uniform float TessLevelOuter;
+
+uniform mat4 ModelMatrix;
+uniform mat4 ViewMatrix;
+
+uniform vec3 viewPos;
+
+/*
+ * From opengl doc:
+ * "In the tessellation control language, gl_InvocationID contains the index of
+ * the output patch vertex assigned to the shader invocation. It is assigned
+ * an integer value in the range [0, N-1] where N is the number of output
+ * patch vertices."
+ */
+#define ID gl_InvocationID
+
+const float log10 = 1.0f / log(10);
+
+float factor(float z);
+
+void main(){
+    tcPosition[ID] = vLocalPos[ID];
+    if (ID == 0){
+        mat4 VP = ViewMatrix * ModelMatrix;
+        vec3 posView = vec3(VP * vec4(tcPosition[ID], 1.0f));
+        float distance = distance(posView, viewPos);
+        float tessLevel = factor(distance);
+
+        gl_TessLevelInner[0] = tessLevel;
+        gl_TessLevelInner[1] = tessLevel;
+        // Neighbour Edges have the same level since they have the same position
+        gl_TessLevelOuter[0] = tessLevel;
+        gl_TessLevelOuter[1] = tessLevel;
+        gl_TessLevelOuter[2] = tessLevel;
+        gl_TessLevelOuter[3] = tessLevel;
+    }
+}
+
+float factor(float z){
+    //float val = (-16 * log10(z * 0.01f));
+    float val = (-16 * log(z * 0.01f) * log10);
+    if(val < 2) val = 2;
+    return val;
+}

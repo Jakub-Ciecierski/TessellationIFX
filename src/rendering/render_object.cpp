@@ -47,15 +47,18 @@ void RenderObject::update(){
     glm::mat4 Translate = translate(glm::mat4(1.0f), position);
 
     glm::mat4 RotateX
-            = glm::rotate(glm::mat4(1.0f), rotation.x, vec3(1.0f, 0.0f, 0.0f));
+            = glm::rotate(glm::mat4(1.0f),
+                          glm::radians(rotation.x), vec3(1.0f, 0.0f, 0.0f));
     glm::mat4 RotateY
-            = glm::rotate(glm::mat4(1.0f), rotation.y, vec3(0.0f, 1.0f, 0.0f));
+            = glm::rotate(glm::mat4(1.0f),
+                          glm::radians(rotation.y), vec3(0.0f, 1.0f, 0.0f));
     glm::mat4 RotateZ
-            = glm::rotate(glm::mat4(1.0f), rotation.z, vec3(0.0f, 0.0f, 1.0f));
+            = glm::rotate(glm::mat4(1.0f),
+                          glm::radians(rotation.z), vec3(0.0f, 0.0f, 1.0f));
 
     glm::mat4 Scale = glm::scale(glm::mat4(1.0f), scaleFactor);
 
-    glm::mat4 Rotate = RotateX * RotateY * RotateZ;
+    glm::mat4 Rotate =  RotateZ * RotateY * RotateX;
 
     ModelMatrix = Translate * Rotate * Scale;
 }

@@ -21,6 +21,8 @@ public:
     Model(const Model& other);
 
     ~Model();
+
+    const std::vector<Mesh*>& getMeshes();
     Mesh* getMesh(int i);
 
     void draw(const Program& program);

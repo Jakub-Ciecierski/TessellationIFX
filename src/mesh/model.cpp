@@ -21,6 +21,10 @@ Model::~Model() {
     }
 }
 
+const std::vector<Mesh*>& Model::getMeshes(){
+    return this->meshes;
+}
+
 Mesh* Model::getMesh(int i){
     return meshes[i];
 }

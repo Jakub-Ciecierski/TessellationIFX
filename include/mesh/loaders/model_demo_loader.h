@@ -20,6 +20,8 @@ public:
     ~ModelDemoLoader();
 
     static Model LoadNanoSuitModel();
+
+    static Model LoadBicubicBezierSurfaceC0();
     static Model LoadBicubicBezierPatch();
     static Model LoadBicubicBezierBowlPatch();
     static Model LoadBicubicBezierAsymmetricPatch();

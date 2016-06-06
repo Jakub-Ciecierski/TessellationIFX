@@ -32,13 +32,15 @@ Camera* camera;
 CameraControls * controls;
 
 RenderObjectLoader* renderObjectLoader;
-RenderObject*squareObjectPointLight;
+RenderObject* squareObjectPointLight;
+RenderObject* squareObjectPointLight2;
 RenderObject* squareObjectDirLight;
 
 RenderObject* boxObject;
 
 RenderObject* patchObject;
 std::vector<RenderObject*> patchesObjects;
+RenderObject* bezierSurfaceC0Object;
 RenderObject* bezierPatchObject;
 RenderObject* bezierBowlPatchObject;
 RenderObject* bezierAsymmetricPatchObject;
@@ -46,16 +48,18 @@ RenderObject* bezierAsymmetricPatchObject;
 LightLoader lightLoader;
 LightGroup lightGroup;
 LightPoint* lightPoint1;
+LightPoint* lightPoint2;
 LightDirectional* lightDirectional;
 LightSpotlight* lightSpotlight;
 
 ProgramLoader programLoader;
+
 Program* programBumpMap;
 Program* programLight;
 Program* programLamp;
 Program* programTess;
 Program* programTessBezier;
-
+Program* programTessLOD;
 
 // ------------------------------
 
@@ -147,15 +151,21 @@ void initExampleMeshes(){
     boxObject = renderObjectLoader->loadCubeObject();
 
     squareObjectPointLight = renderObjectLoader->loadLampObject();
+    squareObjectPointLight2 = renderObjectLoader->loadLampObject();
     squareObjectDirLight = renderObjectLoader->loadLampObject();
 
-    patchObject = renderObjectLoader->loadSquareObject();
-    bezierPatchObject = renderObjectLoader->loadBicubicBezierPatchObject();
+    bezierSurfaceC0Object
+            = renderObjectLoader->loadBicubicBezierSurfaceC0Object();
+    patchObject
+            = renderObjectLoader->loadSquareObject();
+    bezierPatchObject
+            = renderObjectLoader->loadBicubicBezierPatchObject();
     bezierBowlPatchObject
             = renderObjectLoader->loadBicubicBezierBowlPatchObject();
     bezierAsymmetricPatchObject
             = renderObjectLoader->loadBicubicBezierAsymmetricPatchObject();
 
+    patchesObjects.push_back(bezierSurfaceC0Object);
     patchesObjects.push_back(patchObject);
     patchesObjects.push_back(bezierPatchObject);
     patchesObjects.push_back(bezierBowlPatchObject);
@@ -164,10 +174,12 @@ void initExampleMeshes(){
     // ------
 
     lightPoint1 = lightLoader.loadPointLight();
+    lightPoint2 = lightLoader.loadPointLight();
     lightDirectional = lightLoader.loadDirLight();
     lightSpotlight = lightLoader.loadSpotlight();
 
     lightPoint1->setRenderObject(squareObjectPointLight);
+    lightPoint2->setRenderObject(squareObjectPointLight2);
     lightDirectional->setRenderObject(squareObjectDirLight);
     lightSpotlight->setCamera(camera);
     // -------
@@ -175,11 +187,13 @@ void initExampleMeshes(){
     //lightGroup.addLightDirectional(lightDirectional);
     lightGroup.addLightSpotlight(lightSpotlight);
     lightGroup.addLightPoint(lightPoint1);
+    lightGroup.addLightPoint(lightPoint2);
 
     // -------
     squareObjectDirLight->moveTo(glm::vec3(30.0f, 5.0f, 15.0f));
     squareObjectPointLight->scale(glm::vec3(0.3f, 0.3f, 0.3f));
-    squareObjectPointLight->moveTo(glm::vec3(0.0f, 5.0f, 0.0f));
+    squareObjectPointLight2->scale(glm::vec3(0.3f, 0.3f, 0.3f));
+    squareObjectPointLight2->moveTo(glm::vec3(10.0f, 15.0f, 35.0f));
 }
 
 void initShaders(){
@@ -188,6 +202,7 @@ void initShaders(){
     programLamp = programLoader.loadLampProgram();
     programTess = programLoader.loadTessellationProgram();
     programTessBezier = programLoader.loadTessellationBicubicBezierProgram();
+    programTessLOD = programLoader.loadTessellationLODProgram();
 }
 
 void releaseResources(){
@@ -197,8 +212,11 @@ void releaseResources(){
     delete programLight;
     delete programLamp;
     delete programTess;
+    delete programTessBezier;
+    delete programTessLOD;
 
     delete boxObject;
+    delete bezierSurfaceC0Object;
     delete renderObjectLoader;
     delete squareObjectPointLight;
     delete patchObject;
@@ -214,12 +232,16 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 
     if(controls->isKeyPress(GLFW_KEY_Z)){
         for(unsigned int i = 0; i < patchesObjects.size(); i++){
-            Mesh* mesh = patchesObjects[i]->getModel()->getMesh(0);
-            GLenum polygonMode = mesh->getPolygonMode();
-            if(polygonMode == GL_LINE){
-                mesh->setPolygonMode(GL_FILL);
-            }if(polygonMode == GL_FILL){
-                mesh->setPolygonMode(GL_LINE);
+            const std::vector<Mesh*>& meshes =
+                    patchesObjects[i]->getModel()->getMeshes();
+            for(unsigned int i = 0; i < meshes.size(); i++){
+                Mesh* mesh = meshes[i];
+                GLenum polygonMode = mesh->getPolygonMode();
+                if(polygonMode == GL_LINE){
+                    mesh->setPolygonMode(GL_FILL);
+                }if(polygonMode == GL_FILL){
+                    mesh->setPolygonMode(GL_LINE);
+                }
             }
         }
     }
@@ -280,11 +302,12 @@ void update(){
     squareObjectDirLight->update();
 
     patchObject->update();
+    bezierSurfaceC0Object->update();
     bezierPatchObject->update();
     bezierBowlPatchObject->update();
     bezierAsymmetricPatchObject->update();
 
-    // MOVE LIGHT
+    // MOVE LIGHT 1
 
     static float a = 0;
     const float da = 0.05f;
@@ -294,8 +317,19 @@ void update(){
 
     squareObjectPointLight->moveTo(glm::vec3(a, 0.0f, 10.0f));
     squareObjectPointLight->update();
-
     a += curr_da;
+
+    // MOVE LIGHT 2
+    static float rot = 0;
+    float radius = 4.0f;
+    squareObjectPointLight2->moveTo(glm::vec3(15 + cos(rot)*radius,
+                                              15.0f,
+                                              35.0f + sin(rot)*radius));
+    squareObjectPointLight2->update();
+
+    rot+=0.01f;
+    if(rot > 360) rot = 0;
+
 }
 
 void render(){
@@ -317,9 +351,12 @@ void render(){
     bezierBowlPatchObject->render(*programTessBezier);
     bezierAsymmetricPatchObject->render(*programTessBezier);
 
+    camera->use(*programTessLOD);
+    lightGroup.use(*programTessLOD);
+    bezierSurfaceC0Object->render(*programTessLOD);
+
     // Draw Lamp
     camera->use(*programLamp);
-    //squareObjectPointLight->render(*programLamp);
     lightGroup.render(*programLamp);
 }
 
