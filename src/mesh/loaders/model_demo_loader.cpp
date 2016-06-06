@@ -23,6 +23,34 @@ Model ModelDemoLoader::LoadNanoSuitModel() {
     return ModelDemoLoader::LoadCubeModel();
 }
 
+Model ModelDemoLoader::LoadBicubicBezierPatch() {
+    MeshLoader meshLoader;
+    Mesh* mesh = meshLoader.LoadBicubicBezierPatch();
+
+    std::vector<Mesh*> meshes = {mesh};
+
+    return Model(meshes);
+}
+
+Model ModelDemoLoader::LoadBicubicBezierBowlPatch() {
+    MeshLoader meshLoader;
+
+    Mesh* mesh = meshLoader.LoadBicubicBezierBowlPatch();
+
+    std::vector<Mesh*> meshes = {mesh};
+
+    return Model(meshes);
+}
+
+Model ModelDemoLoader::LoadBicubicBezierAsymmetricPatch() {
+    MeshLoader meshLoader;
+    Mesh* mesh = meshLoader.LoadBicubicBezierAsymmetricPatch();
+
+    std::vector<Mesh*> meshes = {mesh};
+
+    return Model(meshes);
+}
+
 Model ModelDemoLoader::LoadSquareModel() {
     MeshLoader meshLoader;
     Mesh* mesh = meshLoader.LoadPatch();

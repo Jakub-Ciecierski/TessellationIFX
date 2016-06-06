@@ -24,7 +24,7 @@
  * Use Multiple RenderObjects to bind the same Mesh
  */
 class Mesh {
-private:
+protected:
     std::vector<Vertex> vertices;
     std::vector<GLuint> indices;
     std::vector<Texture> textures;

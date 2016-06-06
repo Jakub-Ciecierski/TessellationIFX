@@ -32,8 +32,12 @@ Camera* camera;
 CameraControls * controls;
 
 RenderObjectLoader* renderObjectLoader;
-RenderObject*patchObject;
 RenderObject* squareObjectLight1;
+
+RenderObject* patchObject;
+RenderObject* bezierPatchObject;
+RenderObject* bezierBowlPatchObject;
+RenderObject* bezierAsymmetricPatchObject;
 
 LightLoader lightLoader;
 LightGroup lightGroup;
@@ -46,6 +50,7 @@ Program* programBumpMap;
 Program* programLight;
 Program* programLamp;
 Program* programTess;
+Program* programTessBezier;
 
 
 // ------------------------------
@@ -135,8 +140,13 @@ void initScene(){
 
 void initExampleMeshes(){
     renderObjectLoader = new RenderObjectLoader();
-    patchObject = renderObjectLoader->loadSquareObject();
     squareObjectLight1 = renderObjectLoader->loadLampObject();
+    patchObject = renderObjectLoader->loadSquareObject();
+    bezierPatchObject = renderObjectLoader->loadBicubicBezierPatchObject();
+    bezierBowlPatchObject
+            = renderObjectLoader->loadBicubicBezierBowlPatchObject();
+    bezierAsymmetricPatchObject
+            = renderObjectLoader->loadBicubicBezierAsymmetricPatchObject();
 
     // ------
 
@@ -162,6 +172,7 @@ void initShaders(){
     programLight = programLoader.loadAllLightProgram();
     programLamp = programLoader.loadLampProgram();
     programTess = programLoader.loadTessellationProgram();
+    programTessBezier = programLoader.loadTessellationBicubicBezierProgram();
 }
 
 void releaseResources(){
@@ -175,6 +186,7 @@ void releaseResources(){
     delete renderObjectLoader;
     delete squareObjectLight1;
     delete patchObject;
+    delete bezierPatchObject;
 }
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
@@ -207,13 +219,26 @@ void mouse_button_callback(GLFWwindow* window,
 
 void mousescroll_callback(GLFWwindow* window, double xoffset, double yoffset){
     Patch* patch = static_cast<Patch*>(patchObject->getModel()->getMesh(0));
+    Patch* bezierPatch
+            = static_cast<Patch*>(bezierPatchObject->getModel()->getMesh(0));
+    Patch* bezierBowlPatch
+            = static_cast<Patch*>
+            (bezierBowlPatchObject->getModel()->getMesh(0));
+    Patch* bezierAsymPatch
+            = static_cast<Patch*>
+            (bezierAsymmetricPatchObject->getModel()->getMesh(0));
 
     if(controls->isKeyPress(GLFW_KEY_LEFT_SHIFT)){
         patch->addToTessLevelOuter(yoffset);
+        bezierPatch->addToTessLevelOuter(yoffset);
+        bezierBowlPatch->addToTessLevelOuter(yoffset);
+        bezierAsymPatch->addToTessLevelOuter(yoffset);
     }else{
         patch->addToTessLevelInner(yoffset);
+        bezierPatch->addToTessLevelInner(yoffset);
+        bezierBowlPatch->addToTessLevelInner(yoffset);
+        bezierAsymPatch->addToTessLevelInner(yoffset);
     };
-
 }
 
 void update(){
@@ -224,6 +249,9 @@ void update(){
 
     squareObjectLight1->update();
     patchObject->update();
+    bezierPatchObject->update();
+    bezierBowlPatchObject->update();
+    bezierAsymmetricPatchObject->update();
 
     // MOVE LIGHT ------------------
     static float a = 0;
@@ -242,13 +270,14 @@ void render(){
     Program* program = programLight;
     camera->use(*program);
     lightGroup.use(*program);
-    Mesh* mesh = patchObject->getModel()->getMesh(0);
-    mesh->setDrawingMode(GL_TRIANGLES);
-    //squareObject->render(*program);
 
     camera->use(*programTess);
-    mesh->setDrawingMode(GL_PATCHES);
     patchObject->render(*programTess);
+
+    camera->use(*programTessBezier);
+    bezierPatchObject->render(*programTessBezier);
+    bezierBowlPatchObject->render(*programTessBezier);
+    bezierAsymmetricPatchObject->render(*programTessBezier);
 
     // Draw Lamp
     camera->use(*programLamp);

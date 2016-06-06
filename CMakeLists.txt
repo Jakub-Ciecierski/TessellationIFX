@@ -42,7 +42,7 @@ add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${SRC_FILES} res)
 add_custom_command(
         TARGET ${PROJECT_NAME} PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E remove_directory
-        $<TARGET_FILE_DIR:${PROJECT_NAME}>/res/shaders/
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>/res/shaders
 )
 
 # COPY RESOURCES

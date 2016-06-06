@@ -264,7 +264,6 @@ void Mesh::draw(const Program& program){
 
     // Quick hack for GL_PATCH drawing mode
     if(drawingMode == GL_PATCHES){
-        glPatchParameteri(GL_PATCH_VERTICES, 4);
         //glDrawArrays(drawingMode, 0, vertices.size());
         glDrawElements(drawingMode, indices.size(), GL_UNSIGNED_INT, 0);
     }else{

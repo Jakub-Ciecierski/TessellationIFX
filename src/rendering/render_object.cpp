@@ -35,13 +35,13 @@ void RenderObject::render(const Program& program){
 void RenderObject::update(){
     ModelMatrix = mat4();
 
-    ModelMatrix = translate(ModelMatrix, position);
-
     ModelMatrix = glm::rotate(ModelMatrix, rotation.x, vec3(1.0f, 0.0f, 0.0f));
     ModelMatrix = glm::rotate(ModelMatrix, rotation.y, vec3(0.0f, 1.0f, 0.0f));
     ModelMatrix = glm::rotate(ModelMatrix, rotation.z, vec3(0.0f, 0.0f, 1.0f));
 
     ModelMatrix = glm::scale(ModelMatrix, scaleFactor);
+
+    ModelMatrix = translate(ModelMatrix, position);
 }
 
 void RenderObject::moveTo(const glm::vec3 &position) {

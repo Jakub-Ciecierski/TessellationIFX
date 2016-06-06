@@ -20,6 +20,7 @@ public:
 
     ~ProgramLoader();
 
+    Program* loadTessellationBicubicBezierProgram();
     Program* loadTessellationProgram();
     Program* loadCubemapProgram();
     Program* loadAllLightProgram();

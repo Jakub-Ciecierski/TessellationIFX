@@ -12,6 +12,32 @@ ProgramLoader::~ProgramLoader() {
 
 }
 
+Program* ProgramLoader::loadTessellationBicubicBezierProgram(){
+    VertexShader vertexShader =
+            shaderLoader.loadVertexShader
+                    ("res/shaders/tessellation/bicubic_bezier/tess.vs");
+    FragmentShader fragmentShader =
+            shaderLoader.loadFragmentShader
+                    ("res/shaders/tessellation/bicubic_bezier/tess.fs");
+    TessControlShader tessControlShader =
+            shaderLoader.loadTessControlShader
+                    ("res/shaders/tessellation/bicubic_bezier/tess.tcs");
+    TessEvalShader tessEvalShader =
+            shaderLoader.loadTessEvalShader
+                    ("res/shaders/tessellation/bicubic_bezier/tess.tes");
+
+    vertexShader.compile();
+    fragmentShader.compile();
+    tessControlShader.compile();
+    tessEvalShader.compile();
+
+    Program* program = new Program(vertexShader, fragmentShader,
+                                   tessControlShader,
+                                   tessEvalShader);
+    return program;
+}
+
+
 Program* ProgramLoader::loadTessellationProgram(){
     VertexShader vertexShader =
             shaderLoader.loadVertexShader

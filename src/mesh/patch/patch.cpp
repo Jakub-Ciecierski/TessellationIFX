@@ -9,10 +9,12 @@ Patch::Patch(std::vector<Vertex> vertices,
              std::vector <GLuint>& indices,
              std::vector<Texture>& textures,
              float tessLevelInner,
-             float tessLevelOuter) :
+             float tessLevelOuter,
+             int vertexCountPerPatch) :
         Mesh(vertices, indices, textures,
              GL_LINES, GL_PATCHES),
-        tessLevelInner(tessLevelInner), tessLevelOuter(tessLevelOuter){
+        tessLevelInner(tessLevelInner), tessLevelOuter(tessLevelOuter),
+        vertexCountPerPatch(vertexCountPerPatch){
 
 }
 
@@ -21,17 +23,18 @@ Patch::Patch(std::vector<Vertex> vertices,
              std::vector<Texture>& textures,
              Material material,
              float tessLevelInner,
-             float tessLevelOuter) :
+             float tessLevelOuter,
+             int vertexCountPerPatch) :
         Mesh(vertices, indices, textures,
              material, GL_LINES, GL_PATCHES),
-        tessLevelInner(tessLevelInner), tessLevelOuter(tessLevelOuter){
+        tessLevelInner(tessLevelInner), tessLevelOuter(tessLevelOuter),
+        vertexCountPerPatch(vertexCountPerPatch){
 
 }
 
 Patch::~Patch() {
 
 }
-
 
 void Patch::bindTessLevel(const Program& program) {
     GLint tessInnerLoc
@@ -49,6 +52,10 @@ void Patch::bindTessLevel(const Program& program) {
 
 void Patch::draw(const Program &program) {
     bindTessLevel(program);
+    // TODO should be called once
+    glPatchParameteri(GL_PATCH_VERTICES, vertexCountPerPatch);
+
+    this->drawingMode = GL_PATCHES;
 
     Mesh::draw(program);
 }

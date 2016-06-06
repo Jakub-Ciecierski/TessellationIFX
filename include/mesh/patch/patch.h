@@ -7,10 +7,15 @@
 
 #include <mesh/mesh.h>
 
+/*
+ * Patch DrawingMode is always set to GL_PATCHES
+ */
 class Patch : public Mesh{
 private:
     float tessLevelInner;
     float tessLevelOuter;
+
+    int vertexCountPerPatch;
 
     void bindTessLevel(const Program& program);
 
@@ -19,14 +24,16 @@ public:
           std::vector <GLuint>& indices,
           std::vector<Texture>& textures,
           float tessLevelInner = 3.0,
-          float tessLevelOuter = 3.0);
+          float tessLevelOuter = 3.0,
+          int vertexCountPerPatch = 4);
 
     Patch(std::vector<Vertex> vertices,
           std::vector <GLuint>& indices,
           std::vector<Texture>& textures,
           Material material,
           float tessLevelInner = 3.0,
-          float tessLevelOuter = 3.0);
+          float tessLevelOuter = 3.0,
+          int vertexCountPerPatch = 4);
 
     ~Patch();
 

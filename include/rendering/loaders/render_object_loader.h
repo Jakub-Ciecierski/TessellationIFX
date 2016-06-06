@@ -22,6 +22,9 @@ private:
     Model* cubeModel;
     Model* cubeMapModel;
     Model* lampModel;
+    Model* bicubicBezierPatchModel;
+    Model* bicubicBezierBowlPatchModel;
+    Model* bicubicBezierAsymmetricPatchModel;
 
     void initModels();
 
@@ -30,6 +33,10 @@ public:
     RenderObjectLoader();
 
     ~RenderObjectLoader();
+
+    RenderObject* loadBicubicBezierPatchObject();
+    RenderObject* loadBicubicBezierBowlPatchObject();
+    RenderObject* loadBicubicBezierAsymmetricPatchObject();
 
     RenderObject* loadSquareObject();
     RenderObject* loadCubeObject();

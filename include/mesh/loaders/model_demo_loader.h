@@ -20,6 +20,10 @@ public:
     ~ModelDemoLoader();
 
     static Model LoadNanoSuitModel();
+    static Model LoadBicubicBezierPatch();
+    static Model LoadBicubicBezierBowlPatch();
+    static Model LoadBicubicBezierAsymmetricPatch();
+
     static Model LoadSquareModel();
     static Model LoadCubeModel();
     static Model LoadCubemapModel();

@@ -19,6 +19,10 @@ public:
 
     ~MeshLoader();
 
+    static Mesh* LoadBicubicBezierPatch();
+    static Mesh*LoadBicubicBezierBowlPatch();
+    static Mesh* LoadBicubicBezierAsymmetricPatch();
+
     static Mesh* LoadPatch();
     static Mesh* LoadCubemap();
     static Mesh* LoadCube();
