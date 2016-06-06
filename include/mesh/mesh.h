@@ -93,11 +93,12 @@ public:
     void setPolygonMode(GLenum polygonMode);
     void setDrawingMode(GLenum drawingMode);
     void setMaterial(const Material& material);
-
     void addTexture(Texture texture);
 
     std::vector<Texture*> getTextures(TextureTypes type);
     std::vector<Vertex> getVertices();
+    GLenum getPolygonMode();
+    GLenum getDrawingMode();
 
     virtual void draw(const Program& program);
 

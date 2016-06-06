@@ -32,9 +32,13 @@ Camera* camera;
 CameraControls * controls;
 
 RenderObjectLoader* renderObjectLoader;
-RenderObject* squareObjectLight1;
+RenderObject*squareObjectPointLight;
+RenderObject* squareObjectDirLight;
+
+RenderObject* boxObject;
 
 RenderObject* patchObject;
+std::vector<RenderObject*> patchesObjects;
 RenderObject* bezierPatchObject;
 RenderObject* bezierBowlPatchObject;
 RenderObject* bezierAsymmetricPatchObject;
@@ -95,7 +99,7 @@ void initContext(){
 
     width = 800;
     height = 600;
-    window = new ifc::Window(width, height, "Duck");
+    window = new ifc::Window(width, height, "Tessellation");
 
     initOpenGLContext();
     initCallbacks();
@@ -140,7 +144,11 @@ void initScene(){
 
 void initExampleMeshes(){
     renderObjectLoader = new RenderObjectLoader();
-    squareObjectLight1 = renderObjectLoader->loadLampObject();
+    boxObject = renderObjectLoader->loadCubeObject();
+
+    squareObjectPointLight = renderObjectLoader->loadLampObject();
+    squareObjectDirLight = renderObjectLoader->loadLampObject();
+
     patchObject = renderObjectLoader->loadSquareObject();
     bezierPatchObject = renderObjectLoader->loadBicubicBezierPatchObject();
     bezierBowlPatchObject
@@ -148,23 +156,30 @@ void initExampleMeshes(){
     bezierAsymmetricPatchObject
             = renderObjectLoader->loadBicubicBezierAsymmetricPatchObject();
 
+    patchesObjects.push_back(patchObject);
+    patchesObjects.push_back(bezierPatchObject);
+    patchesObjects.push_back(bezierBowlPatchObject);
+    patchesObjects.push_back(bezierAsymmetricPatchObject);
+
     // ------
 
     lightPoint1 = lightLoader.loadPointLight();
     lightDirectional = lightLoader.loadDirLight();
     lightSpotlight = lightLoader.loadSpotlight();
-    lightPoint1->setRenderObject(squareObjectLight1);
+
+    lightPoint1->setRenderObject(squareObjectPointLight);
+    lightDirectional->setRenderObject(squareObjectDirLight);
     lightSpotlight->setCamera(camera);
     // -------
 
-    lightGroup.addLightDirectional(lightDirectional);
+    //lightGroup.addLightDirectional(lightDirectional);
     lightGroup.addLightSpotlight(lightSpotlight);
     lightGroup.addLightPoint(lightPoint1);
+
     // -------
-
-    squareObjectLight1->scale(glm::vec3(0.3f, 0.3f, 0.3f));
-
-    squareObjectLight1->moveTo(glm::vec3(0.0f, 5.0f, 0.0f));
+    squareObjectDirLight->moveTo(glm::vec3(30.0f, 5.0f, 15.0f));
+    squareObjectPointLight->scale(glm::vec3(0.3f, 0.3f, 0.3f));
+    squareObjectPointLight->moveTo(glm::vec3(0.0f, 5.0f, 0.0f));
 }
 
 void initShaders(){
@@ -183,8 +198,9 @@ void releaseResources(){
     delete programLamp;
     delete programTess;
 
+    delete boxObject;
     delete renderObjectLoader;
-    delete squareObjectLight1;
+    delete squareObjectPointLight;
     delete patchObject;
     delete bezierPatchObject;
 }
@@ -195,6 +211,18 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
         glfwSetWindowShouldClose(window, GL_TRUE);
 
     controls->onKeyboardAction(action, key);
+
+    if(controls->isKeyPress(GLFW_KEY_Z)){
+        for(unsigned int i = 0; i < patchesObjects.size(); i++){
+            Mesh* mesh = patchesObjects[i]->getModel()->getMesh(0);
+            GLenum polygonMode = mesh->getPolygonMode();
+            if(polygonMode == GL_LINE){
+                mesh->setPolygonMode(GL_FILL);
+            }if(polygonMode == GL_FILL){
+                mesh->setPolygonMode(GL_LINE);
+            }
+        }
+    }
 }
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos){
@@ -247,20 +275,27 @@ void update(){
     controls->doMovement();
     camera->update();
 
-    squareObjectLight1->update();
+    boxObject->update();
+
+    squareObjectDirLight->update();
+
     patchObject->update();
     bezierPatchObject->update();
     bezierBowlPatchObject->update();
     bezierAsymmetricPatchObject->update();
 
-    // MOVE LIGHT ------------------
+    // MOVE LIGHT
+
     static float a = 0;
-    float radius = 4.0f;
-    squareObjectLight1->moveTo(glm::vec3(cos(a)*radius,
-                                         sin(a)*radius, 0.0f));
-    a+=0.005f;
-    if(a > 360) a = 0;
-    // ------------------
+    const float da = 0.05f;
+    static float curr_da = da;
+    if(a > 35) curr_da = -da;
+    if(a < 0) curr_da = da;
+
+    squareObjectPointLight->moveTo(glm::vec3(a, 0.0f, 10.0f));
+    squareObjectPointLight->update();
+
+    a += curr_da;
 }
 
 void render(){
@@ -268,19 +303,23 @@ void render(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     Program* program = programLight;
+
     camera->use(*program);
     lightGroup.use(*program);
+    boxObject->render(*program);
 
     camera->use(*programTess);
     patchObject->render(*programTess);
 
     camera->use(*programTessBezier);
+    lightGroup.use(*programTessBezier);
     bezierPatchObject->render(*programTessBezier);
     bezierBowlPatchObject->render(*programTessBezier);
     bezierAsymmetricPatchObject->render(*programTessBezier);
 
     // Draw Lamp
     camera->use(*programLamp);
+    //squareObjectPointLight->render(*programLamp);
     lightGroup.render(*programLamp);
 }
 

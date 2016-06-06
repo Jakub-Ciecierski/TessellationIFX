@@ -24,6 +24,8 @@ Mesh* MeshLoader::LoadBicubicBezierPatch(){
     float mid1  = -0.33f;
     float mid2  = 0.33f;
 
+    float depth = 1.5f;
+
     vector<Vertex> vertices = {
             // Row1
             Vertex{vec3(end,  start, 0.0f),
@@ -40,25 +42,25 @@ Mesh* MeshLoader::LoadBicubicBezierPatch(){
 
             // Row 2
             Vertex{vec3(end,  mid2, 0.0f),
-                        vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 1.0f)},
+                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 1.0f)},
 
-            Vertex{vec3(mid1, mid2, 0.0f),
-                        vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 1.0f)},
+            Vertex{vec3(mid1, mid2, depth),
+                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 1.0f)},
 
-            Vertex{vec3(mid2, mid2, 0.0f),
-                        vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 0.0f)},
+            Vertex{vec3(mid2, mid2, depth),
+                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 0.0f)},
 
             Vertex{vec3(start, mid2, 0.0f),
-                        vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 0.0f)},
+                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 0.0f)},
 
             // Row 3
             Vertex{vec3(end,  mid1, 0.0f),
                    vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 1.0f)},
 
-            Vertex{vec3(mid1, mid1, 0.0f),
+            Vertex{vec3(mid1, mid1, depth),
                    vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 1.0f)},
 
-            Vertex{vec3(mid2, mid1, 0.0f),
+            Vertex{vec3(mid2, mid1, depth),
                    vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 0.0f)},
 
             Vertex{vec3(start, mid1, 0.0f),
@@ -97,7 +99,7 @@ Mesh* MeshLoader::LoadBicubicBezierPatch(){
     mesh->setPolygonMode(GL_LINE);
 
     Material material;
-    material.shininess = 32.0f;
+    material.shininess = 332.0f;
 
     mesh->setMaterial(material);
 
@@ -185,7 +187,7 @@ Mesh* MeshLoader::LoadBicubicBezierBowlPatch(){
     mesh->setPolygonMode(GL_LINE);
 
     Material material;
-    material.shininess = 32.0f;
+    material.shininess = 332.0f;
 
     mesh->setMaterial(material);
 
@@ -275,7 +277,7 @@ Mesh* MeshLoader::LoadBicubicBezierAsymmetricPatch(){
     mesh->setPolygonMode(GL_LINE);
 
     Material material;
-    material.shininess = 32.0f;
+    material.shininess = 332.0f;
 
     mesh->setMaterial(material);
 

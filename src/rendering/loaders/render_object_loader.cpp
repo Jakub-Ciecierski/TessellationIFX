@@ -42,8 +42,8 @@ RenderObject *RenderObjectLoader::loadBicubicBezierPatchObject() {
     float scaleFactor = 4.0f;
 
     renderObject->scale(glm::vec3(scaleFactor, scaleFactor, scaleFactor));
-    renderObject->moveTo(glm::vec3(3.0f, 0.0f, 0.0f));
-    renderObject->rotateTo(glm::vec3(0, 90.0f, 0));
+    renderObject->moveTo(glm::vec3(10.0f, 0.0f, 0.0f));
+    //renderObject->rotateTo(glm::vec3(0, 90.0f, 0));
 
     return renderObject;
 }
@@ -55,8 +55,8 @@ RenderObject *RenderObjectLoader::loadBicubicBezierBowlPatchObject() {
     float scaleFactor = 4.0f;
 
     renderObject->scale(glm::vec3(scaleFactor, scaleFactor, scaleFactor));
-    renderObject->moveTo(glm::vec3(6.0f, 0.0f, 0.0f));
-    renderObject->rotateTo(glm::vec3(0, 90.0f, 0));
+    renderObject->moveTo(glm::vec3(20.0f, 0.0f, 0.0f));
+    //renderObject->rotateTo(glm::vec3(0, 90.0f, 0));
 
     return renderObject;
 }
@@ -68,8 +68,8 @@ RenderObject *RenderObjectLoader::loadBicubicBezierAsymmetricPatchObject() {
     float scaleFactor = 4.0f;
 
     renderObject->scale(glm::vec3(scaleFactor, scaleFactor, scaleFactor));
-    renderObject->moveTo(glm::vec3(9.0f, 0.0f, 0.0f));
-    renderObject->rotateTo(glm::vec3(0, 90.0f, 0));
+    renderObject->moveTo(glm::vec3(30.0f, 0.0f, 0.0f));
+    //renderObject->rotateTo(glm::vec3(0, 90.0f, 0));
 
     return renderObject;
 }
@@ -79,7 +79,8 @@ RenderObject *RenderObjectLoader::loadSquareObject() {
             = new RenderObject(ObjectID(0), "Square", squareModel);
     float scaleFactor = 4.0f;
     renderObject->scale(glm::vec3(scaleFactor, scaleFactor, scaleFactor));
-    renderObject->rotateTo(glm::vec3(0, 90.0f, 0));
+    renderObject->moveTo(glm::vec3(1.5f, 0.0f, 0.0f));
+    //renderObject->rotateTo(glm::vec3(0, 90.0f, 0));
 
     return renderObject;
 }

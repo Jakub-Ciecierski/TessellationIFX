@@ -16,13 +16,18 @@ LightPoint *LightLoader::loadPointLight() {
     LightPoint* lightSource = new LightPoint();
 
     Light light;
+    /*
     light.ambient = glm::vec3(0.2f, 0.2f, 0.2f);
     light.diffuse = glm::vec3(0.5f, 0.5f, 0.5f);
+    light.specular= glm::vec3(1.0f, 1.0f, 1.0f);
+    */
+    light.ambient = glm::vec3(1.0f, 1.0f, 1.0f);
+    light.diffuse = glm::vec3(1.0f, 1.0f, 1.0f);
     light.specular= glm::vec3(1.0f, 1.0f, 1.0f);
 
     light.constant = 1.0f;
     light.linear = 0.09f;
-    light.quadratic = 0.032;
+    light.quadratic = 0.0032;
 
     lightSource->setLight(light);
 
@@ -46,7 +51,7 @@ LightDirectional* LightLoader::loadDirLight() {
 
     lightSource->setLight(light);
 
-    lightSource->setPosition(glm::vec3(0.0f, 100.0f, 0.0f));
+    lightSource->setPosition(glm::vec3(0.0f, 15.0f, 0.0f));
     lightSource->setLookAt(glm::vec3(0.0f, 0.0f, 0.0f));
     lightSource->setFollow(false);
 

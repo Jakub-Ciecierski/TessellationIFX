@@ -253,8 +253,16 @@ std::vector<Vertex> Mesh::getVertices() {
     return vertices;
 }
 
+GLenum Mesh::getPolygonMode(){
+    return this->polygonMode;
+}
+GLenum Mesh::getDrawingMode(){
+    return this->drawingMode;
+}
+
 void Mesh::draw(const Program& program){
     program.use();
+
     glPolygonMode(GL_FRONT_AND_BACK, polygonMode);
 
     this->bindTextures(program);
