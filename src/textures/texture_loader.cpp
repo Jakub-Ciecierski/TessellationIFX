@@ -209,8 +209,33 @@ Texture TextureLoader::LoadDynamicBlueSpecularTexture() {
 }
 
 Texture TextureLoader::LoadTesselationDiffuse() {
-    GLuint id = loadFromFile("res/textures/teselation/diffuse.dds");
+    GLuint id = loadFromFile("res/textures/teselation/diffuse.jpg");
     Texture texture = contructTexture(id, GL_TEXTURE_2D);
+    texture.texType = TextureTypes::DIFFUSE;
+
+    return texture;
+}
+
+Texture TextureLoader::LoadTesselationSpecular() {
+    GLuint id = loadFromFile("res/textures/teselation/diffuse.jpg");
+    Texture texture = contructTexture(id, GL_TEXTURE_2D);
+    texture.texType = TextureTypes::SPECULAR;
+
+    return texture;
+}
+
+Texture TextureLoader::LoadTesselationNormals() {
+    GLuint id = loadFromFile("res/textures/teselation/normals.jpg");
+    Texture texture = contructTexture(id, GL_TEXTURE_2D);
+    texture.texType = TextureTypes::NORMAL;
+
+    return texture;
+}
+
+Texture TextureLoader::LoadTesselationHeight() {
+    GLuint id = loadFromFile("res/textures/teselation/height.jpg");
+    Texture texture = contructTexture(id, GL_TEXTURE_2D);
+    texture.texType = TextureTypes::DISPLACEMENT;
 
     return texture;
 }

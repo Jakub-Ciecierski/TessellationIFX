@@ -32,27 +32,71 @@ const float log10 = 1.0f / log(10);
 
 float factor(float z);
 
+float computeCurveDistance(vec3 positions0, vec3 positions1,
+                           vec3 positions2, vec3 positions3, mat4 VP);
+
 void main(){
     tcPosition[ID] = vLocalPos[ID];
     if (ID == 0){
         mat4 VP = ViewMatrix * ModelMatrix;
+
         vec3 posView = vec3(VP * vec4(tcPosition[ID], 1.0f));
         float distance = distance(posView, viewPos);
         float tessLevel = factor(distance);
 
-        gl_TessLevelInner[0] = tessLevel;
-        gl_TessLevelInner[1] = tessLevel;
-        // Neighbour Edges have the same level since they have the same position
-        gl_TessLevelOuter[0] = tessLevel;
-        gl_TessLevelOuter[1] = tessLevel;
-        gl_TessLevelOuter[2] = tessLevel;
-        gl_TessLevelOuter[3] = tessLevel;
+        float leftCurveDist = computeCurveDistance(vLocalPos[0], vLocalPos[4],
+                                                   vLocalPos[8], vLocalPos[12],
+                                                   VP);
+        float leftCurveTessLevel = factor(leftCurveDist);
+
+        float rightCurveDist = computeCurveDistance(vLocalPos[3], vLocalPos[7],
+                                                   vLocalPos[11], vLocalPos[15],
+                                                   VP);
+        float rightCurveTessLevel = factor(rightCurveDist);
+
+        float topCurveDist = computeCurveDistance(vLocalPos[0], vLocalPos[1],
+                                                  vLocalPos[2], vLocalPos[3],
+                                                  VP);
+        float topCurveTessLevel = factor(topCurveDist);
+
+        float bottomCurveDist = computeCurveDistance(vLocalPos[12],
+                                                     vLocalPos[13],
+                                                     vLocalPos[14],
+                                                     vLocalPos[15], VP);
+        float bottomCurveTessLevel = factor(bottomCurveDist);
+
+        gl_TessLevelInner[0] = tessLevel + TessLevelInner;
+        gl_TessLevelInner[1] = tessLevel + TessLevelInner;
+
+        gl_TessLevelOuter[0] = rightCurveTessLevel + TessLevelOuter;
+        gl_TessLevelOuter[1] = bottomCurveTessLevel + TessLevelOuter;
+        gl_TessLevelOuter[2] = leftCurveTessLevel + TessLevelOuter;
+        gl_TessLevelOuter[3] = topCurveTessLevel + TessLevelOuter;
+
+
     }
 }
 
 float factor(float z){
-    //float val = (-16 * log10(z * 0.01f));
     float val = (-16 * log(z * 0.01f) * log10);
     if(val < 2) val = 2;
     return val;
+}
+
+float computeCurveDistance(vec3 positions0, vec3 positions1,
+                           vec3 positions2, vec3 positions3, mat4 VP){
+    vec3 posView0 = vec3(VP * vec4(positions0, 1.0f));
+    vec3 posView1 = vec3(VP * vec4(positions1, 1.0f));
+    vec3 posView2 = vec3(VP * vec4(positions2, 1.0f));
+    vec3 posView3 = vec3(VP * vec4(positions3, 1.0f));
+
+    float distance0 = distance(posView0, viewPos);
+    float distance1 = distance(posView1, viewPos);
+    float distance2 = distance(posView2, viewPos);
+    float distance3 = distance(posView3, viewPos);
+
+    float avg = (distance0 + distance1 + distance2 + distance3) / 4;
+
+    return avg;
+
 }

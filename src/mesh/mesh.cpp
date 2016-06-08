@@ -205,6 +205,9 @@ void Mesh::bindTextures(const Program& program){
         }else if(textures[i].texType == TextureTypes::NORMAL){
             glUniform1i(glGetUniformLocation(program.getID(),
                                              MATERIAL_NORMAL_NAME.c_str()),i);
+        }else if(textures[i].texType == TextureTypes::DISPLACEMENT){
+            glUniform1i(glGetUniformLocation(program.getID(),
+                                             MATERIAL_DISPLACEMENT_NAME.c_str()),i);
         }else if(textures[i].texType == TextureTypes::CUBEMAP){
             glUniform1i(glGetUniformLocation(program.getID(),
                                              TEXTURE_CUBEMAP_NAME.c_str()),i);

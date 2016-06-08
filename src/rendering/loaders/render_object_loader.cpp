@@ -44,7 +44,7 @@ RenderObject *RenderObjectLoader::loadBicubicBezierSurfaceC0Object() {
                                bicubicBezierSurfaceC0Model);
     float scaleFactor = 4.0f;
 
-    renderObject->moveTo(glm::vec3(10.0f, 0.0f, 30.0f));
+    renderObject->moveTo(glm::vec3(10.0f, 0.0f, 50.0f));
     renderObject->rotateTo(glm::vec3(-90.0f, 0.0f, 0.0f));
     renderObject->scale(glm::vec3(scaleFactor, scaleFactor, scaleFactor));
 

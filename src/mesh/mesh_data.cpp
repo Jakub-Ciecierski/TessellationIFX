@@ -26,9 +26,13 @@ const std::string VIEW_POSITION_NAME = "viewPos";
 const std::string MATERIAL_DIFFUSE_NAME = "material.diffuse";
 const std::string MATERIAL_SPECULAR_NAME = "material.specular";
 const std::string MATERIAL_NORMAL_NAME = "material.normal";
+const std::string MATERIAL_DISPLACEMENT_NAME = "material.displacement";
 const std::string MATERIAL_SHININESS_NAME = "material.shininess";
 
 const std::string TEXTURE_CUBEMAP_NAME = "cubemap";
 
 const std::string TESSELLATION_LVL_INNER_NAME = "TessLevelInner";
 const std::string TESSELLATION_LVL_OUTER_NAME = "TessLevelOuter";
+
+const std::string PATCH_ID_I_NAME = "patchIDI";
+const std::string PATCH_ID_J_NAME = "patchIDJ";

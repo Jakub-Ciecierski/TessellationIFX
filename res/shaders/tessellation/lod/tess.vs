@@ -10,6 +10,7 @@ layout (location = 3) in vec3 tangent;
 layout (location = 4) in vec3 binormal;
 
 out vec3 vLocalPos;
+out vec2 vTexCoords;
 
 uniform mat4 ModelMatrix;
 uniform mat4 ViewMatrix;
@@ -18,4 +19,5 @@ uniform mat4 ProjectionMatrix;
 void main()
 {
     vLocalPos = position;
+    vTexCoords = texCoords;
 }

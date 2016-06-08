@@ -17,7 +17,13 @@ private:
 
     int vertexCountPerPatch;
 
+    bool doDrawControlPolygon;
+
+    int idI;
+    int idJ;
+
     void bindTessLevel(const Program& program);
+    void drawPolygon();
 
 public:
     Patch(std::vector<Vertex> vertices,
@@ -25,7 +31,8 @@ public:
           std::vector<Texture>& textures,
           float tessLevelInner = 3.0,
           float tessLevelOuter = 3.0,
-          int vertexCountPerPatch = 4);
+          int vertexCountPerPatch = 4,
+          int idI = 0, int idJ = 0);
 
     Patch(std::vector<Vertex> vertices,
           std::vector <GLuint>& indices,
@@ -33,17 +40,20 @@ public:
           Material material,
           float tessLevelInner = 3.0,
           float tessLevelOuter = 3.0,
-          int vertexCountPerPatch = 4);
+          int vertexCountPerPatch = 4,
+          int idI = 0, int idJ = 0);
 
     ~Patch();
-
-    virtual void draw(const Program& program) override;
 
     void addToTessLevelInner(float lvl);
     void addToTessLevelOuter(float lvl);
 
     void setTessLevelInner(float lvl);
     void setTessLevelOuter(float lvl);
+
+    void setDrawPolygon(bool val);
+
+    virtual void draw(const Program& program) override;
 };
 
 

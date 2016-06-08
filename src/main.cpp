@@ -185,7 +185,7 @@ void initExampleMeshes(){
     // -------
 
     //lightGroup.addLightDirectional(lightDirectional);
-    lightGroup.addLightSpotlight(lightSpotlight);
+    //lightGroup.addLightSpotlight(lightSpotlight);
     lightGroup.addLightPoint(lightPoint1);
     lightGroup.addLightPoint(lightPoint2);
 
@@ -283,11 +283,25 @@ void mousescroll_callback(GLFWwindow* window, double xoffset, double yoffset){
         bezierPatch->addToTessLevelOuter(yoffset);
         bezierBowlPatch->addToTessLevelOuter(yoffset);
         bezierAsymPatch->addToTessLevelOuter(yoffset);
+
+        const std::vector<Mesh*>& meshes
+                = bezierSurfaceC0Object->getModel()->getMeshes();
+        for(unsigned int i = 0; i < meshes.size(); i++){
+            Patch* patch = static_cast<Patch*>(meshes[i]);
+            patch->addToTessLevelOuter(yoffset);
+        }
     }else{
         patch->addToTessLevelInner(yoffset);
         bezierPatch->addToTessLevelInner(yoffset);
         bezierBowlPatch->addToTessLevelInner(yoffset);
         bezierAsymPatch->addToTessLevelInner(yoffset);
+
+        const std::vector<Mesh*>& meshes
+                = bezierSurfaceC0Object->getModel()->getMeshes();
+        for(unsigned int i = 0; i < meshes.size(); i++){
+            Patch* patch = static_cast<Patch*>(meshes[i]);
+            patch->addToTessLevelInner(yoffset);
+        }
     };
 }
 
@@ -321,10 +335,10 @@ void update(){
 
     // MOVE LIGHT 2
     static float rot = 0;
-    float radius = 4.0f;
-    squareObjectPointLight2->moveTo(glm::vec3(15 + cos(rot)*radius,
+    float radius = 10.0f;
+    squareObjectPointLight2->moveTo(glm::vec3(25 + cos(rot)*radius,
                                               15.0f,
-                                              35.0f + sin(rot)*radius));
+                                              45.0f + sin(rot)*radius));
     squareObjectPointLight2->update();
 
     rot+=0.01f;

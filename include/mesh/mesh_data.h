@@ -25,7 +25,7 @@ struct Vertex{
 };
 
 enum TextureTypes{
-    DIFFUSE, SPECULAR, NORMAL, CUBEMAP
+    DIFFUSE, SPECULAR, NORMAL, DISPLACEMENT, CUBEMAP
 };
 
 struct Texture{
@@ -85,11 +85,14 @@ extern const std::string MATERIAL_AMBIENT_NAME;
 extern const std::string MATERIAL_DIFFUSE_NAME;
 extern const std::string MATERIAL_SPECULAR_NAME;
 extern const std::string MATERIAL_NORMAL_NAME;
+extern const std::string MATERIAL_DISPLACEMENT_NAME;
 extern const std::string MATERIAL_SHININESS_NAME;
 
 extern const std::string TEXTURE_CUBEMAP_NAME;
 
 extern const std::string TESSELLATION_LVL_INNER_NAME;
 extern const std::string TESSELLATION_LVL_OUTER_NAME;
+extern const std::string PATCH_ID_I_NAME;
+extern const std::string PATCH_ID_J_NAME;
 
 #endif //DUCK_MESH_DATA_H

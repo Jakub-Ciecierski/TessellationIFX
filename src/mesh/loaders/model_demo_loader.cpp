@@ -30,16 +30,30 @@ Model ModelDemoLoader::LoadNanoSuitModel() {
 
 Model ModelDemoLoader::LoadBicubicBezierSurfaceC0() {
     MeshLoader meshLoader;
-    Mesh* mesh1 = meshLoader.LoadBicubicBezierPatch(-1, 1, 1.5f);
-    Mesh* mesh2 = meshLoader.LoadBicubicBezierPatch(1, 1, -1.5f);
-    Mesh* mesh3 = meshLoader.LoadBicubicBezierPatch(3, 1, 1.5f);
+    Mesh* mesh1 = meshLoader.LoadBicubicBezierPatch(0, 0, 0.0f, 3, 0);
+    Mesh* mesh2 = meshLoader.LoadBicubicBezierPatch(2, 0, 2.0f, 3, 1);
+    Mesh* mesh3 = meshLoader.LoadBicubicBezierPatch(4, 0, 1.5f, 3, 2);
+    Mesh* mesh4 = meshLoader.LoadBicubicBezierPatch(6, 0, 1.5f, 3, 3);
 
-    Mesh* mesh4 = meshLoader.LoadBicubicBezierPatch(-1, -1, -1.5f);
-    Mesh* mesh5 = meshLoader.LoadBicubicBezierPatch(1, -1, 1.5f);
-    Mesh* mesh6 = meshLoader.LoadBicubicBezierPatch(3, -1, -1.5f);
+    Mesh* mesh5 = meshLoader.LoadBicubicBezierPatch(0, 2, 0.2f, 2, 0);
+    Mesh* mesh6 = meshLoader.LoadBicubicBezierPatch(2, 2, 0.5f, 2, 1);
+    Mesh* mesh7 = meshLoader.LoadBicubicBezierPatch(4, 2, 2.5f, 2, 2);
+    Mesh* mesh8 = meshLoader.LoadBicubicBezierPatch(6, 2, -1.5f, 2, 3);
 
-    std::vector<Mesh*> meshes = {mesh1, mesh2, mesh3,
-                                 mesh4, mesh5, mesh6};
+    Mesh* mesh9 = meshLoader.LoadBicubicBezierPatch(0, 4, 0.4f, 1, 0);
+    Mesh* mesh10 = meshLoader.LoadBicubicBezierPatch(2, 4, 1.5f, 1, 1);
+    Mesh* mesh11 = meshLoader.LoadBicubicBezierPatch(4, 4, -1.5f, 1, 2);
+    Mesh* mesh12 = meshLoader.LoadBicubicBezierPatch(6, 4, 1.9f, 1, 3);
+
+    Mesh* mesh13 = meshLoader.LoadBicubicBezierPatch(0, 6, 0.3f, 0, 0);
+    Mesh* mesh14 = meshLoader.LoadBicubicBezierPatch(2, 6, 1.5f, 0, 1);
+    Mesh* mesh15 = meshLoader.LoadBicubicBezierPatch(4, 6, 1.0f, 0, 2);
+    Mesh* mesh16 = meshLoader.LoadBicubicBezierPatch(6, 6, -0.5f, 0, 3);
+
+    std::vector<Mesh*> meshes = {mesh1, mesh2, mesh3, mesh4,
+                                 mesh5, mesh6, mesh7, mesh8,
+                                 mesh9, mesh10, mesh11, mesh12,
+                                 mesh13, mesh14, mesh15, mesh16};
 
     return Model(meshes);
 }

@@ -33,7 +33,12 @@ public:
 
     Texture LoadDynamicBlueDiffuseTexture();
     Texture LoadDynamicBlueSpecularTexture();
+
     Texture LoadTesselationDiffuse();
+    Texture LoadTesselationSpecular();
+    Texture LoadTesselationNormals();
+    Texture LoadTesselationHeight();
+
     Texture LoadContainer();
     Texture LoadContainerDiffuse();
     Texture LoadContainerSpecular();

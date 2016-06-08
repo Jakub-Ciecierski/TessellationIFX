@@ -9,23 +9,60 @@
 //layout(triangles, equal_spacing, cw) in;
 layout(quads, equal_spacing, cw) in;
 
+
+struct Material {
+    sampler2D diffuse; // ambient == diffuse
+    sampler2D specular;
+    sampler2D displacement;
+
+    float shininess;
+};
+
 in vec3 tcPosition[];
 
 out vec3 tePosition;
-out vec3 tePatchDistance;
-out vec3 teFragPos;
 out vec3 teNormal;
+out vec3 teTangent;
+out vec3 teBinormal;
+out vec3 teFragPos;
+out vec2 teTexCoords;
 
 uniform mat4 ModelMatrix;
 uniform mat4 ViewMatrix;
 uniform mat4 ProjectionMatrix;
+uniform int patchIDI;
+uniform int patchIDJ;
+uniform Material material;
+
+const float DISP_SCALE = 0.1f;
+const float log10 = 1.0f / log(10);
+
+float computeMipLevel(float z);
+float factor(float z);
 
 vec4 computeBezierBasis(float u);
 vec4 computeBezierTangentBasis(float u);
 
 void main(){
+    // ---------- TEXCOORDS -------------- //
+
     float u = gl_TessCoord.x;
     float v = gl_TessCoord.y;
+
+    float minJ = patchIDJ / 4.0f;
+    float maxJ = (patchIDJ + 1) / 4.0f;
+    float rJ = maxJ - minJ;
+
+    float minI = patchIDI / 4.0f;
+    float maxI = (patchIDI + 1) / 4.0f;
+    float rI = maxI - minI;
+
+    float texU = rJ * u + minJ;
+    float texV = rI * v + minI;
+
+    teTexCoords = vec2(texU, texV);
+
+    // ---------- POSITION -------------- //
 
     mat4 pX = mat4(
         tcPosition[0].x, tcPosition[1].x, tcPosition[2].x, tcPosition[3].x,
@@ -53,12 +90,11 @@ void main(){
     float y = dot(bezierU, pY * bezierV);
     float z = dot(bezierU, pZ * bezierV);
 
-    vec4 final = vec4(x, y, z, 1.0f);
-    gl_Position
-        = ProjectionMatrix * ViewMatrix * ModelMatrix * final;
-    teFragPos = vec3(ModelMatrix * final);
+    vec3 pointPosition3 = vec3(x, y, z);
+    vec4 pointPosition4 = vec4(x, y, z, 1.0f);
 
-    // Compute Normal
+    // ---------- NORMAL -------------- //
+
     vec4 bezierTanU = computeBezierTangentBasis(u);
     vec4 bezierTanV = computeBezierTangentBasis(v);
 
@@ -74,8 +110,42 @@ void main(){
     vec3 tanV = normalize(vec3(xV, yV, zV));
 
     teNormal  = normalize(cross(tanV, tanU));
+
+    // ---------- DISPLACEMENT -------------- //
+
+    vec4 pointPosViewSpace =  ViewMatrix * ModelMatrix * pointPosition4;
+    float mipLevel = computeMipLevel(pointPosViewSpace.z);
+    float h = texture(material.displacement, teTexCoords, mipLevel).x;
+    h = h * DISP_SCALE;
+    pointPosition3 += h * teNormal;
+
+    gl_Position
+        = ProjectionMatrix * ViewMatrix * ModelMatrix *
+        vec4(pointPosition3, 1.0f);
+
+    teFragPos = vec3(ModelMatrix * vec4(pointPosition3, 1.0f));
+
+    // ---------- TBN -------------- //
+
     teNormal = mat3(transpose(inverse(ModelMatrix))) * teNormal;
     teNormal = normalize(teNormal);
+
+    teTangent = mat3(transpose(inverse(ModelMatrix))) * tanU;
+    teTangent = normalize(teTangent);
+
+    teBinormal = mat3(transpose(inverse(ModelMatrix))) * tanV;
+    teBinormal = normalize(teBinormal);
+}
+
+float computeMipLevel(float z){
+    float val = 6 - log(factor(z));
+    return val;
+}
+
+float factor(float z){
+    float val = (-16 * log(z * 0.01f) * log10);
+    if(val < 2) val = 2;
+    return val;
 }
 
 vec4 computeBezierBasis(float u){
