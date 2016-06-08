@@ -26,6 +26,8 @@ float lastTick;
 int width;
 int height;
 
+bool drawPolygon = false;
+
 ifc::Window* window;
 
 Camera* camera;
@@ -60,7 +62,7 @@ Program* programLamp;
 Program* programTess;
 Program* programTessBezier;
 Program* programTessLOD;
-
+Program* programTessBezierPolygon;
 // ------------------------------
 
 void initContext();
@@ -203,6 +205,8 @@ void initShaders(){
     programTess = programLoader.loadTessellationProgram();
     programTessBezier = programLoader.loadTessellationBicubicBezierProgram();
     programTessLOD = programLoader.loadTessellationLODProgram();
+    programTessBezierPolygon
+            = programLoader.loadTessellationBicubicBezierPolygonProgram();
 }
 
 void releaseResources(){
@@ -214,6 +218,7 @@ void releaseResources(){
     delete programTess;
     delete programTessBezier;
     delete programTessLOD;
+    delete programTessBezierPolygon;
 
     delete boxObject;
     delete bezierSurfaceC0Object;
@@ -229,7 +234,9 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
         glfwSetWindowShouldClose(window, GL_TRUE);
 
     controls->onKeyboardAction(action, key);
-
+    if(controls->isKeyPress(GLFW_KEY_X)){
+        drawPolygon = !drawPolygon;
+    }
     if(controls->isKeyPress(GLFW_KEY_Z)){
         for(unsigned int i = 0; i < patchesObjects.size(); i++){
             const std::vector<Mesh*>& meshes =
@@ -319,7 +326,6 @@ void update(){
     bezierSurfaceC0Object->update();
     bezierPatchObject->update();
     bezierBowlPatchObject->update();
-    bezierAsymmetricPatchObject->update();
 
     // MOVE LIGHT 1
 
@@ -363,11 +369,21 @@ void render(){
     lightGroup.use(*programTessBezier);
     bezierPatchObject->render(*programTessBezier);
     bezierBowlPatchObject->render(*programTessBezier);
-    bezierAsymmetricPatchObject->render(*programTessBezier);
 
     camera->use(*programTessLOD);
     lightGroup.use(*programTessLOD);
     bezierSurfaceC0Object->render(*programTessLOD);
+
+    if(drawPolygon){
+        camera->use(*programTessBezierPolygon);
+        lightGroup.use(*programTessBezierPolygon);
+        bezierSurfaceC0Object->render(*programTessBezierPolygon,
+                                      RenderModels::SUB_MODEL);
+        bezierPatchObject->render(*programTessBezierPolygon,
+                                  RenderModels::SUB_MODEL);
+        bezierBowlPatchObject->render(*programTessBezierPolygon,
+                                      RenderModels::SUB_MODEL);
+    }
 
     // Draw Lamp
     camera->use(*programLamp);

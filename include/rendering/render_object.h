@@ -10,6 +10,10 @@
 #include <mesh/mesh.h>
 #include <mesh/model.h>
 
+enum RenderModels{
+    MAIN_MODEL, SUB_MODEL
+};
+
 /*
  * RenderObject is used to render Meshes.
  */
@@ -62,7 +66,8 @@ public:
     /*
      * Binds the Model matrix and draws Mesh
      */
-    void render(const Program& program);
+    void render(const Program& program,
+                RenderModels renderModel = RenderModels::MAIN_MODEL);
 
     /*
      * Updates the Model Matrix

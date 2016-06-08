@@ -21,8 +21,9 @@ public:
 
     static Mesh* LoadBicubicBezierPatch(float startX, float startY,
                                         float depth, int idI = 0, int idJ = 0);
-    static Mesh* LoadBicubicBezierPatch();
-    static Mesh*LoadBicubicBezierBowlPatch();
+    static Mesh* LoadBicubicBezierPolygon(float startX, float startY,
+                                          float depth,
+                                          int idI = 0, int idJ = 0);
     static Mesh* LoadBicubicBezierAsymmetricPatch();
 
     static Mesh* LoadPatch();

@@ -15,6 +15,8 @@ class Model {
 private:
     std::vector<Mesh*> meshes;
 
+    std::vector<Mesh*> subMeshes;
+
 public:
 
     Model(const std::vector<Mesh*>& meshes);
@@ -22,10 +24,13 @@ public:
 
     ~Model();
 
+    void addSubMesh(Mesh* mesh);
+
     const std::vector<Mesh*>& getMeshes();
     Mesh* getMesh(int i);
 
     void draw(const Program& program);
+    void drawSubMeshes(const Program &program);
 
     std::string toString() const;
 };

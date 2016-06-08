@@ -21,6 +21,7 @@ public:
     ~ProgramLoader();
 
     Program* loadTessellationLODProgram();
+    Program* loadTessellationBicubicBezierPolygonProgram();
     Program* loadTessellationBicubicBezierProgram();
     Program* loadTessellationProgram();
     Program* loadCubemapProgram();

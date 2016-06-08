@@ -21,7 +21,8 @@ void RenderObject::initVectors(){
     scaleFactor = vec3(1.0f, 1.0f, 1.0f);
 }
 
-void RenderObject::render(const Program& program){
+void RenderObject::render(const Program& program,
+                          RenderModels renderModel){
     program.use();
 
     // Model
@@ -29,7 +30,12 @@ void RenderObject::render(const Program& program){
                                               MODEL_MATRIX_NAME.c_str());
     glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(ModelMatrix));
 
-    model->draw(program);
+    if(renderModel == RenderModels::MAIN_MODEL){
+        model->draw(program);
+    }
+    else if(renderModel == RenderModels::SUB_MODEL){
+        model->drawSubMeshes(program);
+    }
 }
 
 void RenderObject::update(){

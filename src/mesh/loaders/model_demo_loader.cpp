@@ -55,26 +55,55 @@ Model ModelDemoLoader::LoadBicubicBezierSurfaceC0() {
                                  mesh9, mesh10, mesh11, mesh12,
                                  mesh13, mesh14, mesh15, mesh16};
 
-    return Model(meshes);
+    Model model(meshes);
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(0, 0, 0.0f, 3, 0));
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(2, 0, 2.0f, 3, 1));
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(4, 0, 1.5f, 3, 2));
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(6, 0, 1.5f, 3, 3));
+
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(0, 2, 0.2f, 2, 0));
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(2, 2, 0.5f, 2, 1));
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(4, 2, 2.5f, 2, 2));
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(6, 2, -1.5f, 2, 3));
+
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(0, 4, 0.4f, 1, 0));
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(2, 4, 1.5f, 1, 1));
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(4, 4, -1.5f, 1, 2));
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(6, 4, 1.9f, 1, 3));
+
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(0, 6, 0.3f, 0, 0));
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(2, 6, 1.5f, 0, 1));
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(4, 6, 1.0f, 0, 2));
+    model.addSubMesh(meshLoader.LoadBicubicBezierPolygon(6, 6, -0.5f, 0, 3));
+
+    return model;
 }
 
 Model ModelDemoLoader::LoadBicubicBezierPatch() {
     MeshLoader meshLoader;
     Mesh* mesh = meshLoader.LoadBicubicBezierPatch(-1, 1, 1.5f);
+    Mesh* meshPolygon1 = meshLoader.LoadBicubicBezierPolygon(-1, 1, 1.5f);
 
     std::vector<Mesh*> meshes = {mesh};
+    Model model(meshes);
 
-    return Model(meshes);
+    model.addSubMesh(meshPolygon1);
+
+    return model;
 }
 
 Model ModelDemoLoader::LoadBicubicBezierBowlPatch() {
     MeshLoader meshLoader;
 
     Mesh* mesh = meshLoader.LoadBicubicBezierPatch(-1, 1, -1.5f);
-
+    Mesh* meshPolygon1 = meshLoader.LoadBicubicBezierPolygon(-1, 1, -1.5f);
     std::vector<Mesh*> meshes = {mesh};
 
-    return Model(meshes);
+    Model model(meshes);
+
+    model.addSubMesh(meshPolygon1);
+
+    return model;
 }
 
 Model ModelDemoLoader::LoadBicubicBezierAsymmetricPatch() {

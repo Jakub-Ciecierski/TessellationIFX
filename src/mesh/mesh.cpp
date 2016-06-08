@@ -273,14 +273,7 @@ void Mesh::draw(const Program& program){
 
     vao->bind();
 
-    // Quick hack for GL_PATCH drawing mode
-    if(drawingMode == GL_PATCHES){
-        //glDrawArrays(drawingMode, 0, vertices.size());
-        glDrawElements(drawingMode, indices.size(), GL_UNSIGNED_INT, 0);
-    }else{
-        glDrawElements(drawingMode, indices.size(), GL_UNSIGNED_INT, 0);
-    }
-
+    glDrawElements(drawingMode, indices.size(), GL_UNSIGNED_INT, 0);
 
     vao->unbind();
 }

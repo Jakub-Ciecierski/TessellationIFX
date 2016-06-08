@@ -107,6 +107,7 @@ Mesh* MeshLoader::LoadBicubicBezierPatch(float startX, float startY,
     Mesh* mesh = new Patch(vertices, indices, textures,
                            2.0f, 2.0f, vertices.size(), idI, idJ);
     mesh->setPolygonMode(GL_LINE);
+    mesh->setDrawingMode(GL_PATCHES);
 
     Material material;
     material.shininess = 32.0f;
@@ -116,176 +117,125 @@ Mesh* MeshLoader::LoadBicubicBezierPatch(float startX, float startY,
     return mesh;
 }
 
-Mesh* MeshLoader::LoadBicubicBezierPatch(){
-    float end   = -1.0f;
-    float start = 1.0f;
-    float mid1  = -0.33f;
-    float mid2  = 0.33f;
+Mesh* MeshLoader::LoadBicubicBezierPolygon(float startX, float startY,
+                                           float depth, int idI, int idJ){
+    //float dx = 2.0f * 0.3333333f;
+    double dx = 2.0f * 0.33333333f;
+    float texDx = 0.3333333;
 
-    float depth = 1.5f;
+    vector<Vertex> vertices;
+    // ROW 1
+    vertices.push_back(Vertex{vec3(startX, startY, 0.0f),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(0.0f, 3.0f * texDx)});
 
-    vector<Vertex> vertices = {
-            // Row1
-            Vertex{vec3(end,  start, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 1.0f)},
+    vertices.push_back(Vertex{vec3(startX + dx, startY, 0.5f),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(texDx, 3.0f * texDx)});
 
-            Vertex{vec3(mid1, start, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 1.0f)},
+    vertices.push_back(Vertex{vec3(startX + (2.0f * dx), startY, 0.0f),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(2.0f * texDx, 3.0f * texDx)});
+    vertices.push_back(Vertex{vec3(startX + (2.0f), startY, 0.0f),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(3.0f * texDx, 3.0f * texDx)});
 
-            Vertex{vec3(mid2, start, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 0.0f)},
+    // ROW 2
+    vertices.push_back(Vertex{vec3(startX , startY - dx, 0.0f),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(0.0f, 2.0f * texDx)});
+    vertices.push_back(Vertex{vec3(startX + dx, startY - dx, depth),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(texDx, 2.0f * texDx)});
+    vertices.push_back(Vertex{vec3(startX + (2.0f * dx), startY - dx, depth),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(2.0f * texDx, 2.0f * texDx)});
+    vertices.push_back(Vertex{vec3(startX + (2.0), startY - dx, 0.0f),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(3.0f * texDx, 2.0f * texDx)});
 
-            Vertex{vec3(start, start, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 0.0f)},
+    // ROW 3
+    vertices.push_back(Vertex{vec3(startX , startY - (2 * dx), 0.0f),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(0.0f, 1.0f * texDx)});
+    vertices.push_back(Vertex{vec3(startX + dx, startY - (2 * dx), depth),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(texDx, 1.0f * texDx)});
+    vertices.push_back(Vertex{vec3(startX + (2.0f * dx),
+                                   startY - (2 * dx), depth),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(2.0f * texDx, 1.0f * texDx)});
+    vertices.push_back(Vertex{vec3(startX + (2.0), startY - (2 * dx), 0.0f),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(3.0f * texDx, 1.0f * texDx)});
 
-            // Row 2
-            Vertex{vec3(end,  mid2, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 1.0f)},
+    // ROW 4
+    vertices.push_back(Vertex{vec3(startX , startY - (2.0), 0.0f),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(0.0f, 0.0f)});
 
-            Vertex{vec3(mid1, mid2, depth),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 1.0f)},
+    vertices.push_back(Vertex{vec3(startX + dx, startY - (2.0), 0.5f),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(texDx, 0.0f)});
 
-            Vertex{vec3(mid2, mid2, depth),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 0.0f)},
-
-            Vertex{vec3(start, mid2, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 0.0f)},
-
-            // Row 3
-            Vertex{vec3(end,  mid1, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 1.0f)},
-
-            Vertex{vec3(mid1, mid1, depth),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 1.0f)},
-
-            Vertex{vec3(mid2, mid1, depth),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 0.0f)},
-
-            Vertex{vec3(start, mid1, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 0.0f)},
-
-            // Row 4
-            Vertex{vec3(end,  end, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 1.0f)},
-
-            Vertex{vec3(mid1, end, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 1.0f)},
-
-            Vertex{vec3(mid2, end, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 0.0f)},
-
-            Vertex{vec3(start, end, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 0.0f)}
-    };
-
-    // Indices for Patch
-    vector<GLuint> indices = {
-            0, 1, 2, 3,
-            4, 5, 6, 7,
-            8, 9, 10, 11,
-            12, 13, 14, 15
-    };
-
-    TextureLoader textureLoader;
-    Texture textureDiffuse = textureLoader.LoadDynamicBlueDiffuseTexture();
-    Texture textureSpecular = textureLoader.LoadDynamicBlueSpecularTexture();
-
-    std::vector<Texture> textures = {textureDiffuse, textureSpecular};
-
-    Mesh* mesh = new Patch(vertices, indices, textures,
-                           2.0f, 2.0f, vertices.size() );
-    mesh->setPolygonMode(GL_LINE);
-
-    Material material;
-    material.shininess = 332.0f;
-
-    mesh->setMaterial(material);
-
-    return mesh;
-}
-
-Mesh* MeshLoader::LoadBicubicBezierBowlPatch(){
-    float end   = -1.0f;
-    float start = 1.0f;
-    float mid1  = -0.33f;
-    float mid2  = 0.33f;
-
-    float depth = -1.5f;
-
-    vector<Vertex> vertices = {
-            // Row1
-            Vertex{vec3(end,  start, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 1.0f)},
-
-            Vertex{vec3(mid1, start, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 1.0f)},
-
-            Vertex{vec3(mid2, start, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 0.0f)},
-
-            Vertex{vec3(start, start, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 0.0f)},
-
-            // Row 2
-            Vertex{vec3(end,  mid2, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 1.0f)},
-
-            Vertex{vec3(mid1, mid2, depth),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 1.0f)},
-
-            Vertex{vec3(mid2, mid2, depth),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 0.0f)},
-
-            Vertex{vec3(start, mid2, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 0.0f)},
-
-            // Row 3
-            Vertex{vec3(end,  mid1, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 1.0f)},
-
-            Vertex{vec3(mid1, mid1, depth),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 1.0f)},
-
-            Vertex{vec3(mid2, mid1, depth),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 0.0f)},
-
-            Vertex{vec3(start, mid1, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 0.0f)},
-
-            // Row 4
-            Vertex{vec3(end,  end, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 1.0f)},
-
-            Vertex{vec3(mid1, end, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 1.0f)},
-
-            Vertex{vec3(mid2, end, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(1.0f, 0.0f)},
-
-            Vertex{vec3(start, end, 0.0f),
-                   vec3(0.0f, 0.0f, -1.0f), vec2(0.0f, 0.0f)}
-    };
+    vertices.push_back(Vertex{vec3(startX + (2.0f * dx), startY - (2.0), 0.0f),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(2.0f*texDx, 0.0f)});
+    vertices.push_back(Vertex{vec3(startX + (2.0), startY - (2.0), 0.0f),
+                              vec3(0.0f, 0.0f, -1.0f),
+                              vec2(3.0f*texDx, 0.0f)});
 
     // Indices for Patch
     vector<GLuint> indices = {
-            0, 1, 2, 3,
-            4, 5, 6, 7,
-            8, 9, 10, 11,
-            12, 13, 14, 15
+            0, 1,
+            1, 2,
+            2, 3,
+
+            4, 5,
+            5, 6,
+            6, 7,
+
+            8, 9,
+            9, 10,
+            10, 11,
+
+            12, 13,
+            13, 14,
+            14, 15,
+
+            0, 4,
+            4, 8,
+            8, 12,
+
+            1, 5,
+            5, 9,
+            9, 13,
+
+            2, 6,
+            6, 10,
+            10, 14,
+
+            3, 7,
+            7, 11,
+            11, 15
     };
-
     TextureLoader textureLoader;
-    Texture textureDiffuse = textureLoader.LoadDynamicBlueDiffuseTexture();
-    Texture textureSpecular = textureLoader.LoadDynamicBlueSpecularTexture();
 
-    std::vector<Texture> textures = {textureDiffuse, textureSpecular};
+    Texture textureDiffuse = textureLoader.LoadTesselationDiffuse();
+    Texture textureSpecular = textureLoader.LoadTesselationSpecular();
+    Texture textureHeight = textureLoader.LoadTesselationHeight();
+    Texture textureNormal = textureLoader.LoadTesselationNormals();
+
+    std::vector<Texture> textures = {textureDiffuse, textureSpecular,
+                                     textureHeight, textureNormal};
 
     Mesh* mesh = new Patch(vertices, indices, textures,
-                           2.0f, 2.0f, vertices.size() );
-    mesh->setPolygonMode(GL_LINE);
+                           2.0f, 2.0f, vertices.size(), idI, idJ);
+    mesh->setPolygonMode(GL_FILL);
+    mesh->setDrawingMode(GL_LINES);
 
     Material material;
-    material.shininess = 332.0f;
+    material.shininess = 32.0f;
 
     mesh->setMaterial(material);
 
@@ -373,6 +323,7 @@ Mesh* MeshLoader::LoadBicubicBezierAsymmetricPatch(){
     Mesh* mesh = new Patch(vertices, indices, textures,
                            2.0f, 2.0f, vertices.size() );
     mesh->setPolygonMode(GL_LINE);
+    mesh->setDrawingMode(GL_PATCHES);
 
     Material material;
     material.shininess = 332.0f;

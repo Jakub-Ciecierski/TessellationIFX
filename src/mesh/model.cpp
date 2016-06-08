@@ -13,12 +13,20 @@ Model::Model(const std::vector<Mesh*>& meshes) :
 
 Model::Model(const Model& other){
     meshes = other.meshes;
+    subMeshes = other.subMeshes;
 }
 
 Model::~Model() {
     for(unsigned int i = 0; i < meshes.size(); i++){
-        delete meshes[0];
+        delete meshes[i];
     }
+    for(unsigned int i = 0; i < subMeshes.size(); i++){
+        delete subMeshes[i];
+    }
+}
+
+void Model::addSubMesh(Mesh* mesh){
+    subMeshes.push_back(mesh);
 }
 
 const std::vector<Mesh*>& Model::getMeshes(){
@@ -32,6 +40,12 @@ Mesh* Model::getMesh(int i){
 void Model::draw(const Program &program) {
     for(unsigned int i = 0; i < meshes.size(); i++){
         meshes[i]->draw(program);
+    }
+}
+
+void Model::drawSubMeshes(const Program &program) {
+    for(unsigned int i = 0; i < subMeshes.size(); i++){
+        subMeshes[i]->draw(program);
     }
 }
 

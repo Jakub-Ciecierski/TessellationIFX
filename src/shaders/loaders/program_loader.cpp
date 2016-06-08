@@ -37,6 +37,21 @@ Program* ProgramLoader::loadTessellationLODProgram(){
     return program;
 }
 
+Program* ProgramLoader::loadTessellationBicubicBezierPolygonProgram(){
+    VertexShader vertexShader =
+            shaderLoader.loadVertexShader
+                    ("res/shaders/tessellation/bicubic_bezier/polygon/tess.vs");
+    FragmentShader fragmentShader =
+            shaderLoader.loadFragmentShader
+                    ("res/shaders/tessellation/bicubic_bezier/polygon/tess.fs");
+
+    vertexShader.compile();
+    fragmentShader.compile();
+
+    Program* program = new Program(vertexShader, fragmentShader);
+    return program;
+}
+
 Program* ProgramLoader::loadTessellationBicubicBezierProgram(){
     VertexShader vertexShader =
             shaderLoader.loadVertexShader
