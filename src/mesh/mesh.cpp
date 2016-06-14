@@ -222,7 +222,6 @@ void Mesh::bindTextures(const Program& program){
 void Mesh::bindColor(const Program& program){
     GLint matShineLoc = glGetUniformLocation(program.getID(),
                                              MATERIAL_SHININESS_NAME.c_str());
-
     glUniform1f(matShineLoc, material.shininess);
 }
 

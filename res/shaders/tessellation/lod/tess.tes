@@ -13,6 +13,7 @@ layout(quads, equal_spacing, cw) in;
 struct Material {
     sampler2D diffuse; // ambient == diffuse
     sampler2D specular;
+    sampler2D normal;
     sampler2D displacement;
 
     float shininess;
@@ -117,7 +118,7 @@ void main(){
     float mipLevel = computeMipLevel(pointPosViewSpace.z);
     float h = texture(material.displacement, teTexCoords, mipLevel).x;
     h = h * DISP_SCALE;
-    pointPosition3 += h * teNormal;
+    //pointPosition3 += h * teNormal;
 
     gl_Position
         = ProjectionMatrix * ViewMatrix * ModelMatrix *

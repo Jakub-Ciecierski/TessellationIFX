@@ -43,3 +43,7 @@ void Shader::deleteShader() {
 GLuint Shader::getKey() {
     return id;
 }
+
+std::string Shader::getSource(){
+    return this->shaderSource;
+}

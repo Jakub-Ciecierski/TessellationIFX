@@ -363,6 +363,7 @@ void render(){
     boxObject->render(*program);
 
     camera->use(*programTess);
+    lightGroup.use(*programTess);
     patchObject->render(*programTess);
 
     camera->use(*programTessBezier);

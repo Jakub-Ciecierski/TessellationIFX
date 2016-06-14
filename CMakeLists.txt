@@ -35,7 +35,7 @@ include_directories(${INC_DIRS} res/)
 
 # SOURCES AUTOMATIC SEARCH
 file(GLOB_RECURSE SRC_FILES src/*.cpp)
-set(SOURCE_FILES src/shaders/tess_eval_shader.cpp include/shaders/tess_eval_shader.h src/shaders/tess_control_shader.cpp include/shaders/tess_control_shader.h src/mesh/patch/patch.cpp include/mesh/patch/patch.h)
+set(SOURCE_FILES )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${SRC_FILES} res)
 
@@ -56,7 +56,7 @@ add_custom_command(
 # EXTERNALS LOCAL
 #---------------------------------
 
-add_subdirectory(dependencies/assimp-3.1.1)
+#add_subdirectory(dependencies/assimp-3.1.1)
 add_subdirectory(
         dependencies/glfw-3.1.2
         dependencies/glm)
@@ -67,10 +67,9 @@ link_directories(dependencies/soil/lib)
 include_directories(
         dependencies/glfw-3.1.2/include
         dependencies/glm/include
-        dependencies/SOIL/src
-        dependencies/assimp-3.1.1/include)
+        dependencies/SOIL/src)
 
-target_link_libraries(${PROJECT_NAME} glfw SOIL assimp
+target_link_libraries(${PROJECT_NAME} glfw SOIL
         ${GLFW_LIBRARIES})
 
 #---------------------------------

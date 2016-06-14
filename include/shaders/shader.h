@@ -35,6 +35,8 @@ public:
     void deleteShader();
 
     GLuint getKey();
+
+    std::string getSource();
 };
 
 

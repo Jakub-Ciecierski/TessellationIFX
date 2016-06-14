@@ -66,7 +66,10 @@ void Program::linkShaders(VertexShader &vertexShader,
     if(!success) {
         glGetProgramInfoLog(id, 512, NULL, infoLog);
         std::string infoLogStr = infoLog;
-        std::cout << infoLogStr << std::endl;
+        std::cout << infoLogStr <<  std::endl;
+        std::cout << tessEvalShader.getSource() <<  std::endl;
+
+
         throw new std::invalid_argument("ERROR::PROGRAM::COMPILATION_FAILED\n"
                                         + infoLogStr);
     }

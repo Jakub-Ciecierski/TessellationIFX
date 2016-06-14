@@ -364,6 +364,7 @@ Mesh* MeshLoader::LoadPatch(){
 
     Mesh* mesh = new Patch(vertices, indices, textures);
     mesh->setPolygonMode(GL_LINE);
+    mesh->setDrawingMode(GL_PATCHES);
 
     Material material;
     material.shininess = 32.0f;
