@@ -118,7 +118,7 @@ void main(){
     float mipLevel = computeMipLevel(pointPosViewSpace.z);
     float h = texture(material.displacement, teTexCoords, mipLevel).x;
     h = h * DISP_SCALE;
-    //pointPosition3 += h * teNormal;
+    pointPosition3 += h * teNormal;
 
     gl_Position
         = ProjectionMatrix * ViewMatrix * ModelMatrix *

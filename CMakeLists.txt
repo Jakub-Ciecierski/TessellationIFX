@@ -42,7 +42,7 @@ add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${SRC_FILES} res)
 add_custom_command(
         TARGET ${PROJECT_NAME} PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E remove_directory
-        $<TARGET_FILE_DIR:${PROJECT_NAME}>/res/shaders/
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>/res/shaders
 )
 
 # COPY RESOURCES
@@ -56,7 +56,7 @@ add_custom_command(
 # EXTERNALS LOCAL
 #---------------------------------
 
-#add_subdirectory(dependencies/assimp-3.1.1)
+add_subdirectory(dependencies/assimp-3.1.1)
 add_subdirectory(
         dependencies/glfw-3.1.2
         dependencies/glm)
@@ -69,7 +69,7 @@ include_directories(
         dependencies/glm/include
         dependencies/SOIL/src)
 
-target_link_libraries(${PROJECT_NAME} glfw SOIL
+target_link_libraries(${PROJECT_NAME} glfw SOIL assimp
         ${GLFW_LIBRARIES})
 
 #---------------------------------
